@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TSK ACTIVE | WATER PASS</title>
+<title>TSK ACTIVE | Membership System>
 
 <style>
 :root{
   --green:#087a52;
-  --orange:#f39b25;
-  --black:#15211c;
-  --bg:#f4f7f5;
+  --orange:#f59a23;
+  --dark:#12231d;
+  --bg:#f2f6f3;
+  --line:#e3ebe5;
 }
 
 *{box-sizing:border-box}
@@ -19,120 +20,156 @@ body{
   margin:0;
   font-family:Arial,Tahoma,sans-serif;
   background:var(--bg);
-  color:var(--black);
+  color:var(--dark);
 }
 
 header{
-  background:#fff;
-  padding:22px;
+  background:var(--dark);
+  color:white;
+  padding:24px 18px;
   text-align:center;
-  border-bottom:4px solid var(--green);
 }
 
-.logo{
-  font-size:29px;
+.brand{
+  font-size:32px;
   font-weight:900;
-  color:var(--green);
+  letter-spacing:1px;
 }
 
-.logo span{color:var(--orange)}
+.brand span{color:var(--orange)}
 
-.subtitle{
-  margin-top:7px;
-  font-size:14px;
-  color:#666;
+header p{
+  color:#d7e5dc;
+  margin:8px 0 0;
 }
 
-.container{
-  max-width:460px;
-  margin:35px auto;
-  padding:20px;
+main{
+  max-width:650px;
+  margin:25px auto;
+  padding:0 15px;
 }
 
 .card{
-  background:#fff;
-  border-radius:22px;
-  padding:27px;
-  box-shadow:0 8px 30px #0000000d;
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 8px 25px #0000000b;
 }
 
-h2{
-  text-align:center;
-  margin:0 0 25px;
-}
-
-label{
-  display:block;
-  margin:17px 0 8px;
-  font-weight:bold;
-}
+h2,h3{margin-top:0}
 
 input,select{
   width:100%;
-  padding:15px;
-  font-size:17px;
-  border:1px solid #ddd;
+  padding:14px;
+  margin:8px 0 14px;
+  border:1px solid #ccd9d0;
   border-radius:12px;
-  background:#fff;
-}
-
-input:focus{
-  outline:2px solid var(--green);
+  font-size:16px;
+  background:white;
 }
 
 button{
-  width:100%;
-  padding:16px;
-  margin-top:20px;
-  background:var(--green);
   border:0;
-  border-radius:12px;
+  background:var(--green);
   color:white;
-  font-size:17px;
+  padding:14px;
+  border-radius:12px;
+  font-size:16px;
   font-weight:bold;
   cursor:pointer;
 }
 
-button:disabled{opacity:.6}
-
-.secondary{background:var(--black)}
-
-.error{
-  color:#bd2424;
-  text-align:center;
-  margin-top:15px;
-  min-height:20px;
+button:disabled{
+  opacity:.55;
+  cursor:wait;
 }
 
-.success{
+.full{width:100%}
+
+.orange{background:var(--orange);color:#17231d}
+
+.dark{background:var(--dark)}
+
+.light{
+  background:#e8f4ed;
   color:var(--green);
-  text-align:center;
+}
+
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-bottom:18px;
+}
+
+.tabs button{
+  padding:12px 7px;
+  font-size:14px;
+}
+
+.hidden{display:none!important}
+
+.info{
+  background:#f1f7f3;
+  border-radius:13px;
+  padding:15px;
+  margin:12px 0;
+  line-height:2;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.row:last-child{border-bottom:0}
+
+.muted{color:#66786c}
+
+.message{
+  margin:14px 0;
+  padding:13px;
+  border-radius:12px;
+  background:#e8f5ed;
+  color:#075b3b;
+  line-height:1.8;
+}
+
+.error{
+  background:#fff0f0;
+  color:#b42318;
+}
+
+.warning{
+  background:#fff4df;
+  color:#875100;
 }
 
 .badge{
   display:inline-block;
-  padding:10px 17px;
-  background:#e5f5ec;
+  padding:7px 13px;
+  border-radius:25px;
+  background:#e5f5eb;
   color:var(--green);
-  border-radius:30px;
   font-weight:bold;
 }
 
-.info{
-  padding:16px;
-  background:#f4f7f5;
-  border-radius:12px;
-  margin-top:15px;
-  line-height:1.9;
+.small{
+  font-size:13px;
+  color:#687a70;
+  line-height:1.8;
 }
-
-.hidden{display:none}
 
 footer{
   text-align:center;
-  color:#999;
+  color:#7d8d83;
   font-size:12px;
-  padding:30px;
+  padding:25px;
 }
 </style>
 </head>
@@ -140,317 +177,653 @@ footer{
 <body>
 
 <header>
-  <div class="logo">TSK <span>ACTIVE</span></div>
-  <div class="subtitle">WATER PASS | اشتراك المياه</div>
+  <div class="brand">TSK <span>ACTIVE</span></div>
+  <p>MEMBERSHIP & REWARDS</p>
+  <p>العضويات • الباقات • المحفظة • المكافآت</p>
 </header>
 
-<main class="container">
+<main>
 
-  <div class="card" id="loginCard">
+<section id="loginPage" class="card">
+  <h2>تسجيل دخول الموظفين</h2>
 
-    <select id="language" onchange="changeLanguage()">
-      <option value="ar">العربية</option>
-      <option value="en">English</option>
-      <option value="bn">বাংলা</option>
-    </select>
+  <label>رقم الموظف</label>
+  <input id="employee" inputmode="numeric"
+         autocomplete="username"
+         placeholder="رقم الموظف">
 
-    <h2 id="loginTitle" style="margin-top:25px">
-      تسجيل دخول الموظفين
-    </h2>
+  <label>كلمة المرور</label>
+  <input id="password" type="password"
+         autocomplete="current-password"
+         placeholder="كلمة المرور">
 
-    <form id="loginForm">
+  <button class="full" id="loginBtn" onclick="login()">
+    تسجيل الدخول
+  </button>
 
-      <label id="employeeLabel">رقم الموظف</label>
+  <div id="loginMessage"></div>
+</section>
 
-      <input
-        id="employeeNumber"
-        type="text"
-        inputmode="numeric"
-        autocomplete="username"
-        placeholder="2690003"
-        required
-      >
+<section id="appPage" class="hidden">
 
-      <label id="passwordLabel">كلمة المرور</label>
-
-      <input
-        id="password"
-        type="password"
-        autocomplete="current-password"
-        required
-      >
-
-      <button id="loginButton" type="submit">
-        تسجيل الدخول
-      </button>
-
-    </form>
-
-    <div id="message" class="error"></div>
-
-  </div>
-
-  <div class="card hidden" id="dashboard">
-
-    <h2 id="welcomeTitle">مرحبًا بك</h2>
-
-    <div style="text-align:center">
-      <span class="badge" id="roleBadge"></span>
+  <div class="card">
+    <div class="row">
+      <strong>TSK ACTIVE</strong>
+      <span class="badge" id="roleText"></span>
     </div>
 
-    <div class="info">
-      <div>
-        <strong id="numberTitle">رقم الموظف:</strong>
-        <span id="showEmployee"></span>
-      </div>
-
-      <div>
-        <strong id="branchTitle">الفرع:</strong>
-        <span id="showBranch"></span>
-      </div>
+    <div class="row">
+      <span>رقم الموظف</span>
+      <strong id="employeeText"></strong>
     </div>
 
-    <p class="success" id="loginSuccess">
-      تم تسجيل الدخول بنجاح
-    </p>
-
-    <div class="info" id="statusText">
-      تم ربط حسابك بنظام TSK WATER PASS.
-      عمليات الاشتراكات والصرف ستُفعّل بعد اختبار صلاحيات قاعدة البيانات.
+    <div class="row">
+      <span>الفرع</span>
+      <strong id="branchText"></strong>
     </div>
 
-    <button class="secondary" onclick="logout()" id="logoutButton">
+    <button class="dark full" onclick="logout()">
       تسجيل الخروج
     </button>
-
   </div>
+
+  <div class="tabs">
+    <button onclick="openTab('search')">بحث عن عضو</button>
+    <button onclick="openTab('register')">عضو جديد</button>
+    <button onclick="openTab('sale')">بيع باقة</button>
+    <button onclick="openTab('redeem')">صرف منتج</button>
+    <button onclick="openTab('wallet')">المحفظة</button>
+    <button onclick="openTab('overview')">التقارير</button>
+  </div>
+
+  <section id="tab-search" class="card">
+    <h3>البحث عن المشترك</h3>
+
+    <input id="searchQuery"
+           placeholder="رقم العضوية أو الجوال">
+
+    <button class="full" onclick="lookupMember()">
+      بحث
+    </button>
+
+    <div id="memberResult"></div>
+  </section>
+
+  <section id="tab-register" class="card hidden">
+    <h3>تسجيل عضو جديد</h3>
+
+    <label>اسم العميل</label>
+    <input id="newName" placeholder="الاسم الكامل">
+
+    <label>رقم الجوال</label>
+    <input id="newPhone" inputmode="tel"
+           placeholder="05xxxxxxxx">
+
+    <button class="full" onclick="registerMember()">
+      إنشاء العضوية
+    </button>
+
+    <div id="registerResult"></div>
+  </section>
+
+  <section id="tab-sale" class="card hidden">
+    <h3>بيع باقة أو شحن المحفظة</h3>
+
+    <div class="info">
+      العميل المحدد:
+      <strong class="selectedName">لم يتم اختيار عميل</strong>
+    </div>
+
+    <label>الباقة</label>
+    <select id="catalogSelect" onchange="showPrice()"></select>
+
+    <div class="info">
+      السعر:
+      <strong id="selectedPrice">—</strong>
+    </div>
+
+    <label>طريقة الدفع</label>
+    <select id="paymentMethod">
+      <option value="cash">نقدًا</option>
+      <option value="pos">نقاط البيع</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="paymentConfirmed"
+             style="width:auto;margin-left:8px">
+      أؤكد استلام المبلغ فعليًا
+    </label>
+
+    <button class="orange full" onclick="purchasePackage()">
+      تأكيد البيع
+    </button>
+
+    <div id="saleResult"></div>
+  </section>
+
+  <section id="tab-redeem" class="card hidden">
+    <h3>صرف منتج للمشترك</h3>
+
+    <div class="info">
+      العميل المحدد:
+      <strong class="selectedName">لم يتم اختيار عميل</strong>
+    </div>
+
+    <label>المنتج</label>
+    <select id="redeemKind">
+      <option value="protein">بروتين شيك</option>
+      <option value="bowl">هيلثي بول</option>
+      <option value="smoothie">سموذي</option>
+      <option value="water">مياه نوفا</option>
+    </select>
+
+    <div class="message warning">
+      عند تأكيد الصرف، سيتم خصم وحدة واحدة من رصيد المشترك.
+    </div>
+
+    <button class="full" id="redeemBtn" onclick="redeemProduct()">
+      تأكيد صرف وحدة واحدة
+    </button>
+
+    <div id="redeemResult"></div>
+  </section>
+
+  <section id="tab-wallet" class="card hidden">
+    <h3>المحفظة والمكافآت</h3>
+
+    <div class="info">
+      العميل المحدد:
+      <strong class="selectedName">لم يتم اختيار عميل</strong>
+    </div>
+
+    <div class="row">
+      <span>الرصيد</span>
+      <strong id="walletBalance">—</strong>
+    </div>
+
+    <div class="row">
+      <span>المكافآت</span>
+      <strong id="promoBalance">—</strong>
+    </div>
+
+    <p class="small">
+      شحن المحفظة متاح من تبويب «بيع باقة».
+      شراء المنتجات من المحفظة سيُفعّل بعد إتمام اختبارات العمليات المالية.
+    </p>
+  </section>
+
+  <section id="tab-overview" class="card hidden">
+    <h3>ملخص الفرع</h3>
+
+    <div id="overviewResult"></div>
+
+    <button class="full light" onclick="loadOverview()">
+      تحديث البيانات
+    </button>
+  </section>
+
+</section>
 
 </main>
 
-<footer>
-  © TSK ACTIVE — WATER PASS
-</footer>
+<footer>© TSK ACTIVE — MEMBERSHIP SYSTEM</footer>
 
 <script>
 const SUPABASE_URL =
-  "https://qitrsjlkshhuvrtbswll.supabase.co";
-
-const LOGIN_URL =
-  SUPABASE_URL + "/functions/v1/tsk-employee-login";
+ "https://qitrsjlkshhuvrtbswll.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
+ "sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
 
-const branches = {
-  1:"الصفوة",
-  2:"المجمعة",
-  3:"المزاحمية"
+const LOGIN_URL =
+ SUPABASE_URL+"/functions/v1/tsk-employee-login";
+
+const BRANCHES={
+ 1:"الصفوة",
+ 2:"المجمعة",
+ 3:"المزاحمية"
 };
 
-const translations = {
-  ar:{
-    login:"تسجيل دخول الموظفين",
-    employee:"رقم الموظف",
-    password:"كلمة المرور",
-    button:"تسجيل الدخول",
-    loading:"جارٍ تسجيل الدخول...",
-    welcome:"مرحبًا بك في TSK ACTIVE",
-    number:"رقم الموظف:",
-    branch:"الفرع:",
-    logout:"تسجيل الخروج",
-    success:"تم تسجيل الدخول بنجاح",
-    admin:"المدير",
-    cashier:"الكاشير",
-    all:"جميع الفروع",
-    error:"تعذر تسجيل الدخول. تحقق من البيانات.",
-    network:"تعذر الاتصال بالخادم."
-  },
-  en:{
-    login:"Employee Login",
-    employee:"Employee Number",
-    password:"Password",
-    button:"Sign In",
-    loading:"Signing in...",
-    welcome:"Welcome to TSK ACTIVE",
-    number:"Employee Number:",
-    branch:"Branch:",
-    logout:"Log Out",
-    success:"Login successful",
-    admin:"Administrator",
-    cashier:"Cashier",
-    all:"All Branches",
-    error:"Invalid login details.",
-    network:"Unable to connect to server."
-  },
-  bn:{
-    login:"কর্মচারী লগইন",
-    employee:"কর্মচারী নম্বর",
-    password:"পাসওয়ার্ড",
-    button:"লগইন করুন",
-    loading:"লগইন হচ্ছে...",
-    welcome:"TSK ACTIVE-এ স্বাগতম",
-    number:"কর্মচারী নম্বর:",
-    branch:"শাখা:",
-    logout:"লগআউট",
-    success:"সফলভাবে লগইন হয়েছে",
-    admin:"অ্যাডমিন",
-    cashier:"ক্যাশিয়ার",
-    all:"সব শাখা",
-    error:"লগইন তথ্য সঠিক নয়।",
-    network:"সার্ভারের সাথে সংযোগ করা যায়নি।"
+let session=null;
+let staff=null;
+let selectedMember=null;
+let catalog=[];
+let pendingRedeem=null;
+
+const $=id=>document.getElementById(id);
+
+function escapeHTML(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+ })[c]);
+}
+
+function money(value){
+ return Number(value||0).toFixed(2)+" ريال";
+}
+
+function notice(id,message,isError=false){
+ $(id).innerHTML=
+ `<div class="message ${isError?'error':''}">
+ ${escapeHTML(message)}
+ </div>`;
+}
+
+function branchId(){
+ return Number(staff?.branch_id || 1);
+}
+
+async function login(){
+ const employee_number=$("employee").value.trim();
+ const password=$("password").value;
+ const btn=$("loginBtn");
+
+ if(!employee_number||!password){
+  notice("loginMessage","أدخلي رقم الموظف وكلمة المرور",true);
+  return;
+ }
+
+ btn.disabled=true;
+
+ try{
+  const response=await fetch(LOGIN_URL,{
+   method:"POST",
+   headers:{
+    "Content-Type":"application/json",
+    "apikey":SUPABASE_KEY
+   },
+   body:JSON.stringify({employee_number,password})
+  });
+
+  const data=await response.json();
+
+  if(!response.ok||!data.access_token||!data.user){
+   throw new Error(data.error||"تعذر تسجيل الدخول");
   }
-};
 
-let currentUser = null;
+  session={
+   access_token:data.access_token,
+   refresh_token:data.refresh_token,
+   expires_at:Date.now()+
+    Number(data.expires_in||3600)*1000
+  };
 
-function getLang(){
-  return document.getElementById("language").value;
+  staff=data.user;
+
+  sessionStorage.setItem("tsk_active_session",
+   JSON.stringify({session,staff}));
+
+  $("password").value="";
+  showApp();
+
+ }catch(error){
+  notice("loginMessage",error.message,true);
+ }finally{
+  btn.disabled=false;
+ }
 }
 
-function changeLanguage(){
-  const lang = getLang();
-  const t = translations[lang];
+function showApp(){
+ $("loginPage").classList.add("hidden");
+ $("appPage").classList.remove("hidden");
 
-  document.documentElement.lang = lang;
-  document.documentElement.dir =
-    lang === "ar" ? "rtl" : "ltr";
+ $("roleText").textContent=
+ staff.role==="admin"?"الإدارة":"الكاشير";
 
-  document.getElementById("loginTitle").textContent=t.login;
-  document.getElementById("employeeLabel").textContent=t.employee;
-  document.getElementById("passwordLabel").textContent=t.password;
-  document.getElementById("loginButton").textContent=t.button;
-  document.getElementById("welcomeTitle").textContent=t.welcome;
-  document.getElementById("numberTitle").textContent=t.number;
-  document.getElementById("branchTitle").textContent=t.branch;
-  document.getElementById("logoutButton").textContent=t.logout;
-  document.getElementById("loginSuccess").textContent=t.success;
+ $("employeeText").textContent=staff.employee_number;
 
-  if(currentUser) showUser(currentUser);
+ $("branchText").textContent=
+ staff.role==="admin"
+ ? "جميع الفروع"
+ : BRANCHES[staff.branch_id]||"غير محدد";
+
+ openTab("search");
+ loadOverview();
 }
-
-function showUser(user){
-  currentUser=user;
-
-  const t=translations[getLang()];
-
-  document.getElementById("loginCard")
-    .classList.add("hidden");
-
-  document.getElementById("dashboard")
-    .classList.remove("hidden");
-
-  document.getElementById("showEmployee")
-    .textContent=user.employee_number;
-
-  document.getElementById("roleBadge")
-    .textContent=user.role==="admin"
-      ? t.admin : t.cashier;
-
-  document.getElementById("showBranch")
-    .textContent=user.role==="admin"
-      ? t.all
-      : (branches[user.branch_id] || "—");
-}
-
-document.getElementById("loginForm")
-  .addEventListener("submit",async function(event){
-
-  event.preventDefault();
-
-  const lang=getLang();
-  const t=translations[lang];
-
-  const employee_number=
-    document.getElementById("employeeNumber")
-      .value.trim();
-
-  const password=
-    document.getElementById("password").value;
-
-  const button=document.getElementById("loginButton");
-  const message=document.getElementById("message");
-
-  button.disabled=true;
-  button.textContent=t.loading;
-  message.textContent="";
-
-  try{
-    const response=await fetch(LOGIN_URL,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "apikey":SUPABASE_KEY
-      },
-      body:JSON.stringify({
-        employee_number,
-        password
-      })
-    });
-
-    const data=await response.json();
-
-    if(!response.ok || !data.access_token || !data.user){
-      message.textContent=data.error || t.error;
-      return;
-    }
-
-    // Store the session for the current browser tab only.
-    sessionStorage.setItem(
-      "tsk_water_session",
-      JSON.stringify({
-        access_token:data.access_token,
-        refresh_token:data.refresh_token,
-        expires_at:Date.now()+
-          (Number(data.expires_in)||3600)*1000,
-        user:data.user
-      })
-    );
-
-    document.getElementById("password").value="";
-    showUser(data.user);
-
-  }catch(error){
-    message.textContent=t.network;
-  }finally{
-    button.disabled=false;
-    button.textContent=t.button;
-  }
-});
 
 function logout(){
-  sessionStorage.removeItem("tsk_water_session");
-  currentUser=null;
-
-  document.getElementById("dashboard")
-    .classList.add("hidden");
-
-  document.getElementById("loginCard")
-    .classList.remove("hidden");
-
-  document.getElementById("employeeNumber").value="";
-  document.getElementById("password").value="";
-  document.getElementById("message").textContent="";
+ sessionStorage.removeItem("tsk_active_session");
+ session=null;
+ staff=null;
+ selectedMember=null;
+ pendingRedeem=null;
+ $("appPage").classList.add("hidden");
+ $("loginPage").classList.remove("hidden");
 }
 
-(function(){
-  try{
-    const saved=JSON.parse(
-      sessionStorage.getItem("tsk_water_session")
-    );
+async function rpc(name,params={}){
+ if(!session?.access_token){
+  throw new Error("يرجى تسجيل الدخول");
+ }
 
-    if(
-      saved &&
-      saved.expires_at>Date.now() &&
-      saved.user &&
-      saved.access_token
-    ){
-      showUser(saved.user);
-    }else{
-      sessionStorage.removeItem("tsk_water_session");
-    }
-  }catch{
-    sessionStorage.removeItem("tsk_water_session");
+ if(Date.now()>=session.expires_at){
+  logout();
+  throw new Error("انتهت الجلسة. سجلي الدخول مجددًا.");
+ }
+
+ const response=await fetch(
+  SUPABASE_URL+"/rest/v1/rpc/"+name,{
+   method:"POST",
+   headers:{
+    "Content-Type":"application/json",
+    "apikey":SUPABASE_KEY,
+    "Authorization":"Bearer "+session.access_token
+   },
+   body:JSON.stringify(params)
   }
+ );
+
+ const data=await response.json().catch(()=>null);
+
+ if(!response.ok){
+  throw new Error(data?.message||"تعذرت العملية");
+ }
+
+ return data;
+}
+
+function openTab(name){
+ document.querySelectorAll('[id^="tab-"]')
+  .forEach(el=>el.classList.add("hidden"));
+
+ $("tab-"+name).classList.remove("hidden");
+
+ if(name==="overview")loadOverview();
+}
+
+function selectMember(member,data){
+ selectedMember=member;
+ pendingRedeem=null;
+
+ document.querySelectorAll(".selectedName")
+  .forEach(el=>el.textContent=
+   member.full_name+" — "+member.member_no);
+
+ $("walletBalance").textContent=
+  money(data?.wallet?.balance);
+
+ $("promoBalance").textContent=
+  money(data?.wallet?.promo_balance);
+}
+
+async function lookupMember(){
+ const query=$("searchQuery").value.trim();
+
+ if(!query){
+  notice("memberResult","أدخلي رقم العضوية أو الجوال",true);
+  return;
+ }
+
+ try{
+  const data=await rpc("tsk_member_lookup",{
+   p_query:query
+  });
+
+  const member=data.member;
+  selectMember(member,data);
+
+  let html=`
+   <div class="info">
+    <strong>${escapeHTML(member.full_name)}</strong><br>
+    رقم العضوية: ${escapeHTML(member.member_no)}<br>
+    الجوال: ${escapeHTML(member.phone)}
+   </div>
+   <h3>أرصدة الباقات</h3>
+  `;
+
+  const packages=Array.isArray(data.packages)
+   ?data.packages:[];
+
+  if(!packages.length){
+   html+=`<p class="muted">لا توجد باقات فعالة.</p>`;
+  }
+
+  for(const p of packages){
+   html+=`
+    <div class="row">
+     <span>${escapeHTML(p.kind)}</span>
+     <strong>${Number(p.remaining)||0} متبقي</strong>
+    </div>
+   `;
+  }
+
+  html+=`
+   <button class="full" onclick="openTab('redeem')">
+    صرف منتج
+   </button>
+   <button class="orange full" onclick="openTab('sale')">
+    بيع باقة
+   </button>
+  `;
+
+  $("memberResult").innerHTML=html;
+
+ }catch(error){
+  selectedMember=null;
+  notice("memberResult",error.message,true);
+ }
+}
+
+async function registerMember(){
+ const name=$("newName").value.trim();
+ const phone=$("newPhone").value.trim();
+
+ if(name.length<2||!/^05[0-9]{8}$/.test(phone)){
+  notice("registerResult",
+   "أدخلي اسمًا صحيحًا ورقم جوال يبدأ بـ 05",true);
+  return;
+ }
+
+ try{
+  const data=await rpc("tsk_new_member",{
+   p_name:name,
+   p_phone:phone,
+   p_branch:branchId()
+  });
+
+  notice("registerResult",
+   "تم إنشاء العضوية: "+data.member_no);
+
+  $("searchQuery").value=data.member_no;
+  await lookupMember();
+  openTab("search");
+
+ }catch(error){
+  notice("registerResult",error.message,true);
+ }
+}
+
+function fillCatalog(){
+ const select=$("catalogSelect");
+ select.innerHTML="";
+
+ for(const item of catalog){
+  const option=document.createElement("option");
+  option.value=item.code;
+  option.textContent=
+   item.title_ar+" — "+money(item.price);
+  select.appendChild(option);
+ }
+
+ showPrice();
+}
+
+function showPrice(){
+ const item=catalog.find(
+  x=>x.code===$("catalogSelect").value
+ );
+
+ $("selectedPrice").textContent=
+  item?money(item.price):"—";
+}
+
+async function purchasePackage(){
+ if(!selectedMember){
+  notice("saleResult","ابحثي عن العميل أولًا",true);
+  return;
+ }
+
+ if(!$("paymentConfirmed").checked){
+  notice("saleResult",
+   "يجب تأكيد استلام المبلغ قبل تسجيل البيع",true);
+  return;
+ }
+
+ const code=$("catalogSelect").value;
+ const method=$("paymentMethod").value;
+
+ const item=catalog.find(x=>x.code===code);
+
+ if(!item){
+  notice("saleResult","اختاري الباقة",true);
+  return;
+ }
+
+ if(!confirm(
+  "تأكيد بيع "+item.title_ar+
+  " بمبلغ "+money(item.price)+"؟"
+ ))return;
+
+ try{
+  const data=await rpc("tsk_purchase",{
+   p_member:selectedMember.id,
+   p_code:code,
+   p_method:method,
+   p_branch:branchId()
+  });
+
+  $("paymentConfirmed").checked=false;
+
+  notice("saleResult",
+   "تم تسجيل البيع. رقم العملية: "+data.purchase_id);
+
+  $("searchQuery").value=selectedMember.member_no;
+  await lookupMember();
+
+ }catch(error){
+  notice("saleResult",error.message,true);
+ }
+}
+
+async function redeemProduct(){
+ if(!selectedMember){
+  notice("redeemResult","ابحثي عن العميل أولًا",true);
+  return;
+ }
+
+ const kind=$("redeemKind").value;
+ const memberId=selectedMember.id;
+ const branch=branchId();
+
+ if(
+  !pendingRedeem ||
+  pendingRedeem.member!==memberId ||
+  pendingRedeem.kind!==kind ||
+  pendingRedeem.branch!==branch
+ ){
+  pendingRedeem={
+   id:crypto.randomUUID(),
+   member:memberId,
+   kind,
+   branch
+  };
+ }
+
+ const request=pendingRedeem;
+ const btn=$("redeemBtn");
+
+ if(!confirm("تأكيد صرف وحدة واحدة؟"))return;
+
+ btn.disabled=true;
+
+ try{
+  const data=await rpc("tsk_redeem_safe",{
+   p_member:request.member,
+   p_kind:request.kind,
+   p_branch:request.branch,
+   p_request_id:request.id
+  });
+
+  if(data.status==="already_processed"){
+   notice("redeemResult",
+    "هذه العملية مسجلة مسبقًا، ولم يتم الخصم مرة أخرى.");
+  }else{
+   notice("redeemResult",
+    "تم صرف المنتج. المتبقي في الباقة: "+
+    data.remaining_in_package);
+  }
+
+  pendingRedeem=null;
+
+  $("searchQuery").value=selectedMember.member_no;
+  await lookupMember();
+
+ }catch(error){
+  notice("redeemResult",
+   "تعذرت العملية: "+error.message+
+   ". لا تعيدي الصرف برقم طلب جديد قبل التحقق من سجل العميل.",
+   true);
+ }finally{
+  btn.disabled=false;
+ }
+}
+
+async function loadOverview(){
+ if(!staff)return;
+
+ try{
+  const data=await rpc("tsk_overview",{
+   p_branch:staff.role==="admin"
+    ?null:branchId()
+  });
+
+  catalog=Array.isArray(data.catalog)?data.catalog:[];
+  fillCatalog();
+
+  $("overviewResult").innerHTML=`
+   <div class="row">
+    <span>عدد الأعضاء</span>
+    <strong>${Number(data.members)||0}</strong>
+   </div>
+   <div class="row">
+    <span>إجمالي المبيعات المسجلة</span>
+    <strong>${money(data.sales)}</strong>
+   </div>
+   <div class="row">
+    <span>مخزون مياه نوفا</span>
+    <strong>${Number(data.water_stock)||0} عبوة</strong>
+   </div>
+  `;
+
+ }catch(error){
+  notice("overviewResult",error.message,true);
+ }
+}
+
+(function restoreSession(){
+ try{
+  const saved=JSON.parse(
+   sessionStorage.getItem("tsk_active_session")
+  );
+
+  if(
+   saved?.session?.access_token &&
+   saved?.session?.expires_at>Date.now() &&
+   saved?.staff
+  ){
+   session=saved.session;
+   staff=saved.staff;
+   showApp();
+  }else{
+   sessionStorage.removeItem("tsk_active_session");
+  }
+ }catch{
+  sessionStorage.removeItem("tsk_active_session");
+ }
 })();
 </script>
 
