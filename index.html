@@ -1,1163 +1,1184 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10231c">
-  <title>TSK ACTIVE | Membership & Rewards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10231c">
+<title>TSK ACTIVE | Membership & Rewards</title>
 
-  <style>
-    :root {
-      --green: #087a52;
-      --orange: #f49a28;
-      --dark: #10231c;
-      --bg: #f3f7f4;
-      --line: #e2eae5;
-      --muted: #63766b;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-    }
-
-    header {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 30px 16px 26px;
-      border-bottom: 5px solid var(--orange);
-    }
-
-    .brand {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .brand .tsk { color: #27a977; }
-    .brand .active { color: var(--orange); }
-
-    .tagline {
-      margin-top: 9px;
-      color: #d9e7de;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    main {
-      width: min(100%, 720px);
-      margin: 24px auto;
-      padding: 0 15px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 17px;
-      box-shadow: 0 8px 28px rgba(0,0,0,.045);
-    }
-
-    h2, h3 { margin-top: 0; }
-    h2 { font-size: 22px; }
-    h3 { font-size: 19px; }
-
-    label {
-      display: block;
-      margin: 13px 0 6px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    input, select {
-      width: 100%;
-      min-height: 47px;
-      padding: 12px;
-      border: 1px solid #cad8cf;
-      border-radius: 11px;
-      background: white;
-      color: var(--dark);
-      font-size: 16px;
-    }
-
-    input:focus, select:focus {
-      outline: 2px solid #9bd9b9;
-      border-color: var(--green);
-    }
-
-    button {
-      border: none;
-      border-radius: 11px;
-      background: var(--green);
-      color: white;
-      padding: 14px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: .55;
-      cursor: not-allowed;
-    }
-
-    .full {
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .orange {
-      background: var(--orange);
-      color: var(--dark);
-    }
-
-    .dark { background: var(--dark); }
-
-    .light {
-      background: #e8f5ec;
-      color: var(--green);
-    }
-
-    .hidden { display: none !important; }
-
-    .tabs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      margin-bottom: 17px;
-    }
-
-    .tabs button {
-      min-height: 49px;
-      padding: 10px 6px;
-      font-size: 13px;
-    }
-
-    .tabs button.active {
-      background: var(--orange);
-      color: var(--dark);
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-      padding: 13px 0;
-    }
-
-    .row:last-child { border-bottom: 0; }
-
-    .info {
-      background: #f0f7f2;
-      padding: 15px;
-      border-radius: 12px;
-      margin: 13px 0;
-      line-height: 1.9;
-    }
-
-    .message {
-      background: #e9f7ee;
-      color: #075b3b;
-      padding: 13px;
-      border-radius: 12px;
-      margin-top: 14px;
-      line-height: 1.8;
-      overflow-wrap: anywhere;
-    }
-
-    .message.error {
-      background: #fff0ef;
-      color: #ae271c;
-    }
-
-    .message.warning {
-      background: #fff3df;
-      color: #855000;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 7px 13px;
-      border-radius: 30px;
-      background: #e5f5eb;
-      color: var(--green);
-      font-weight: bold;
-      font-size: 13px;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .checkline {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-top: 16px;
-      line-height: 1.7;
-    }
-
-    .checkline input {
-      width: 20px;
-      min-height: 20px;
-      flex-shrink: 0;
-    }
-
-    .checkline label {
-      margin: 0;
-      font-weight: normal;
-    }
-
-    footer {
-      text-align: center;
-      color: #829187;
-      font-size: 12px;
-      padding: 25px;
-    }
-  </style>
+<style>
+:root{
+ --green:#087a52;
+ --orange:#f49a28;
+ --dark:#10231c;
+ --bg:#f3f7f4;
+ --line:#e2eae5;
+ --muted:#63766b;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,Tahoma,sans-serif;
+ background:var(--bg);
+ color:var(--dark);
+}
+header{
+ background:var(--dark);
+ color:white;
+ text-align:center;
+ padding:25px 15px 28px;
+ border-bottom:5px solid var(--orange);
+}
+.brand{
+ font-size:34px;
+ font-weight:900;
+ letter-spacing:1px;
+}
+.brand .tsk{color:#27a977}
+.brand .active{color:var(--orange)}
+.tagline{
+ margin:8px 0;
+ color:#d9e7de;
+ font-size:13px;
+ letter-spacing:1px;
+}
+.language-box{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:8px;
+ margin-bottom:18px;
+}
+.language-box select{
+ width:auto;
+ min-width:150px;
+ margin:0;
+ background:#fff;
+ color:var(--dark);
+}
+main{
+ width:min(100%,720px);
+ margin:24px auto;
+ padding:0 15px;
+}
+.card{
+ background:white;
+ border-radius:20px;
+ padding:22px;
+ margin-bottom:17px;
+ box-shadow:0 8px 28px #0000000b;
+}
+h2,h3{margin-top:0}
+label{
+ display:block;
+ margin:13px 0 6px;
+ font-weight:bold;
+ font-size:14px;
+}
+input,select{
+ width:100%;
+ min-height:47px;
+ padding:12px;
+ border:1px solid #cad8cf;
+ border-radius:11px;
+ background:white;
+ color:var(--dark);
+ font-size:16px;
+}
+button{
+ border:none;
+ border-radius:11px;
+ background:var(--green);
+ color:white;
+ padding:14px;
+ font-size:15px;
+ font-weight:bold;
+ cursor:pointer;
+}
+button:disabled{opacity:.5;cursor:not-allowed}
+.full{width:100%;margin-top:15px}
+.orange{background:var(--orange);color:var(--dark)}
+.dark{background:var(--dark)}
+.light{background:#e8f5ec;color:var(--green)}
+.hidden{display:none!important}
+.tabs{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px;
+ margin-bottom:17px;
+}
+.tabs button{
+ min-height:49px;
+ padding:10px 6px;
+ font-size:13px;
+}
+.tabs button.active{
+ background:var(--orange);
+ color:var(--dark);
+}
+.row{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ border-bottom:1px solid var(--line);
+ padding:13px 0;
+}
+.row:last-child{border-bottom:0}
+.info{
+ background:#f0f7f2;
+ padding:15px;
+ border-radius:12px;
+ margin:13px 0;
+ line-height:1.9;
+}
+.message{
+ background:#e9f7ee;
+ color:#075b3b;
+ padding:13px;
+ border-radius:12px;
+ margin-top:14px;
+ line-height:1.8;
+ overflow-wrap:anywhere;
+}
+.message.error{
+ background:#fff0ef;
+ color:#ae271c;
+}
+.message.warning{
+ background:#fff3df;
+ color:#855000;
+}
+.badge{
+ display:inline-block;
+ padding:7px 13px;
+ border-radius:30px;
+ background:#e5f5eb;
+ color:var(--green);
+ font-weight:bold;
+ font-size:13px;
+}
+.muted{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.8;
+}
+.checkline{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin-top:16px;
+}
+.checkline input{
+ width:20px;
+ min-height:20px;
+}
+.checkline label{margin:0;font-weight:normal}
+.stock-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+ margin:15px 0;
+}
+.stock-card{
+ background:#eff8f2;
+ border:1px solid #d7ebde;
+ border-radius:13px;
+ padding:15px 8px;
+ text-align:center;
+}
+.stock-card strong{
+ display:block;
+ font-size:25px;
+ color:var(--green);
+ margin-top:9px;
+}
+footer{
+ text-align:center;
+ color:#829187;
+ font-size:12px;
+ padding:25px;
+}
+@media(max-width:450px){
+ .stock-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">
-    <span class="tsk">TSK</span>
-    <span class="active">ACTIVE</span>
-  </div>
-  <div class="tagline">MEMBERSHIP & REWARDS</div>
-  <p>العضويات • الباقات • المحفظة • المكافآت</p>
+ <div class="language-box">
+  <select id="languageSelect" aria-label="Language">
+   <option value="ar">🇸🇦 العربية</option>
+   <option value="en">🇬🇧 English</option>
+   <option value="bn">🇧🇩 বাংলা</option>
+  </select>
+ </div>
+
+ <div class="brand">
+  <span class="tsk">TSK</span>
+  <span class="active">ACTIVE</span>
+ </div>
+
+ <div class="tagline">MEMBERSHIP & REWARDS</div>
+ <p data-i18n="subtitle">العضويات • الباقات • المحفظة • المكافآت</p>
 </header>
 
 <main>
 
-  <!-- LOGIN -->
-  <section id="loginPage" class="card">
-    <h2>تسجيل دخول الموظفين</h2>
+<section id="loginPage" class="card">
+ <h2 data-i18n="login">تسجيل دخول الموظفين</h2>
 
-    <form id="loginForm">
-      <label for="employee">رقم الموظف</label>
-      <input
-        id="employee"
-        type="text"
-        inputmode="numeric"
-        autocomplete="username"
-        placeholder="رقم الموظف"
-        required
-      >
+ <form id="loginForm">
+  <label data-i18n="employee">رقم الموظف</label>
+  <input id="employee" autocomplete="username" inputmode="numeric" required>
 
-      <label for="password">كلمة المرور</label>
-      <input
-        id="password"
-        type="password"
-        autocomplete="current-password"
-        required
-      >
+  <label data-i18n="password">كلمة المرور</label>
+  <input id="password" type="password" autocomplete="current-password" required>
 
-      <button id="loginBtn" class="full" type="submit">
-        تسجيل الدخول
-      </button>
-    </form>
+  <button id="loginBtn" class="full" type="submit" data-i18n="loginBtn">
+   تسجيل الدخول
+  </button>
+ </form>
 
-    <div id="loginMessage"></div>
-  </section>
+ <div id="loginMessage"></div>
+</section>
 
-  <!-- APPLICATION -->
-  <section id="appPage" class="hidden">
+<section id="appPage" class="hidden">
 
-    <div class="card">
-      <div class="row">
-        <strong>لوحة الموظف</strong>
-        <span id="roleText" class="badge"></span>
-      </div>
+ <div class="card">
+  <div class="row">
+   <strong data-i18n="dashboard">لوحة الموظف</strong>
+   <span id="roleText" class="badge"></span>
+  </div>
 
-      <div class="row">
-        <span>رقم الموظف</span>
-        <strong id="employeeText"></strong>
-      </div>
+  <div class="row">
+   <span data-i18n="employee">رقم الموظف</span>
+   <strong id="employeeText"></strong>
+  </div>
 
-      <div class="row">
-        <span>الفرع</span>
-        <strong id="branchText"></strong>
-      </div>
+  <div class="row">
+   <span data-i18n="branch">الفرع</span>
+   <strong id="branchText"></strong>
+  </div>
 
-      <button id="logoutBtn" class="full dark" type="button">
-        تسجيل الخروج
-      </button>
-    </div>
+  <button id="logoutBtn" class="full dark" data-i18n="logout">
+   تسجيل الخروج
+  </button>
+ </div>
 
-    <div class="tabs">
-      <button type="button" data-tab="search">بحث عن عضو</button>
-      <button type="button" data-tab="register">عضو جديد</button>
-      <button type="button" data-tab="sale">بيع باقة</button>
-      <button type="button" data-tab="redeem">صرف منتج</button>
-      <button type="button" data-tab="wallet">المحفظة</button>
-      <button type="button" data-tab="overview">التقارير</button>
-    </div>
+ <div class="tabs">
+  <button data-tab="search" data-i18n="search">بحث عن عضو</button>
+  <button data-tab="register" data-i18n="register">عضو جديد</button>
+  <button data-tab="sale" data-i18n="sale">بيع باقة</button>
+  <button data-tab="redeem" data-i18n="redeem">صرف منتج</button>
+  <button data-tab="wallet" data-i18n="wallet">المحفظة</button>
+  <button data-tab="overview" data-i18n="reports">التقارير</button>
+  <button id="stockTabButton" class="hidden" data-tab="stock" data-i18n="stock">
+   مخزون مياه نوفا
+  </button>
+ </div>
 
-    <!-- SEARCH -->
-    <section id="tab-search" class="card">
-      <h3>البحث عن المشترك</h3>
+ <section id="tab-search" class="card">
+  <h3 data-i18n="search">بحث عن عضو</h3>
+  <input id="searchQuery" placeholder="TSK-000001 / 05xxxxxxxx">
+  <button id="searchBtn" class="full" data-i18n="searchBtn">بحث</button>
+  <div id="memberResult"></div>
+ </section>
 
-      <label for="searchQuery">رقم العضوية أو الجوال</label>
-      <input
-        id="searchQuery"
-        type="text"
-        placeholder="TSK-000001 أو 05xxxxxxxx"
-      >
+ <section id="tab-register" class="card hidden">
+  <h3 data-i18n="register">عضو جديد</h3>
+  <label data-i18n="name">اسم العميل</label>
+  <input id="newName">
+  <label data-i18n="phone">رقم الجوال</label>
+  <input id="newPhone" inputmode="tel">
+  <button id="registerBtn" class="full" data-i18n="createMember">
+   إنشاء العضوية
+  </button>
+  <div id="registerResult"></div>
+ </section>
 
-      <button id="searchBtn" class="full" type="button">
-        بحث
-      </button>
+ <section id="tab-sale" class="card hidden">
+  <h3 data-i18n="sale">بيع باقة</h3>
+  <div class="info">
+   <span data-i18n="selectedMember">العميل المحدد</span>:
+   <strong class="selectedName">—</strong>
+  </div>
 
-      <div id="memberResult"></div>
-    </section>
+  <label data-i18n="package">الباقة</label>
+  <select id="catalogSelect"></select>
 
-    <!-- REGISTER -->
-    <section id="tab-register" class="card hidden">
-      <h3>تسجيل عضو جديد</h3>
+  <div class="info">
+   <span data-i18n="price">السعر</span>:
+   <strong id="selectedPrice">—</strong>
+  </div>
 
-      <label for="newName">اسم العميل</label>
-      <input id="newName" type="text" placeholder="الاسم الكامل">
+  <label data-i18n="payment">طريقة الدفع</label>
+  <select id="paymentMethod">
+   <option value="cash" data-i18n="cash">نقدًا</option>
+   <option value="pos" data-i18n="pos">نقاط البيع</option>
+  </select>
 
-      <label for="newPhone">رقم الجوال</label>
-      <input
-        id="newPhone"
-        type="tel"
-        inputmode="tel"
-        placeholder="05xxxxxxxx"
-      >
+  <div class="checkline">
+   <input id="paymentConfirmed" type="checkbox">
+   <label data-i18n="confirmPayment">أؤكد استلام المبلغ فعليًا</label>
+  </div>
 
-      <button id="registerBtn" class="full" type="button">
-        إنشاء العضوية
-      </button>
+  <button id="purchaseBtn" class="full orange" data-i18n="confirmSale">
+   تأكيد البيع
+  </button>
+  <div id="saleResult"></div>
+ </section>
 
-      <div id="registerResult"></div>
-    </section>
+ <section id="tab-redeem" class="card hidden">
+  <h3 data-i18n="redeem">صرف منتج</h3>
 
-    <!-- SALE -->
-    <section id="tab-sale" class="card hidden">
-      <h3>بيع باقة أو شحن المحفظة</h3>
+  <div class="info">
+   <span data-i18n="selectedMember">العميل المحدد</span>:
+   <strong class="selectedName">—</strong>
+  </div>
 
-      <div class="info">
-        العميل المحدد:
-        <strong class="selectedName">لم يتم اختيار عميل</strong>
-      </div>
+  <label data-i18n="product">المنتج</label>
+  <select id="redeemKind">
+   <option value="protein" data-i18n="protein">بروتين شيك</option>
+   <option value="bowl" data-i18n="bowl">هيلثي بول</option>
+   <option value="smoothie" data-i18n="smoothie">سموذي</option>
+   <option value="water" data-i18n="water">مياه نوفا</option>
+  </select>
 
-      <label for="catalogSelect">اختيار الباقة</label>
-      <select id="catalogSelect"></select>
+  <div class="message warning" data-i18n="redeemWarning">
+   سيتم خصم وحدة واحدة من رصيد المشترك بعد التأكيد.
+  </div>
 
-      <div class="info">
-        السعر:
-        <strong id="selectedPrice">—</strong>
-      </div>
+  <button id="redeemBtn" class="full" data-i18n="confirmRedeem">
+   تأكيد صرف وحدة واحدة
+  </button>
+  <div id="redeemResult"></div>
+ </section>
 
-      <label for="paymentMethod">طريقة الدفع</label>
-      <select id="paymentMethod">
-        <option value="cash">نقدًا</option>
-        <option value="pos">نقاط البيع</option>
-      </select>
+ <section id="tab-wallet" class="card hidden">
+  <h3 data-i18n="wallet">المحفظة</h3>
 
-      <div class="checkline">
-        <input id="paymentConfirmed" type="checkbox">
-        <label for="paymentConfirmed">
-          أؤكد استلام المبلغ فعليًا
-        </label>
-      </div>
+  <div class="info">
+   <span data-i18n="selectedMember">العميل المحدد</span>:
+   <strong class="selectedName">—</strong>
+  </div>
 
-      <button id="purchaseBtn" class="full orange" type="button">
-        تأكيد البيع
-      </button>
+  <div class="row">
+   <span data-i18n="walletBalance">رصيد المحفظة</span>
+   <strong id="walletBalance">—</strong>
+  </div>
 
-      <div id="saleResult"></div>
-    </section>
+  <div class="row">
+   <span data-i18n="rewards">رصيد المكافآت</span>
+   <strong id="promoBalance">—</strong>
+  </div>
+ </section>
 
-    <!-- REDEEM -->
-    <section id="tab-redeem" class="card hidden">
-      <h3>صرف منتج للمشترك</h3>
+ <section id="tab-overview" class="card hidden">
+  <h3 data-i18n="reports">التقارير</h3>
+  <div id="overviewResult"></div>
+  <button id="refreshBtn" class="full light" data-i18n="refresh">
+   تحديث البيانات
+  </button>
+ </section>
 
-      <div class="info">
-        العميل المحدد:
-        <strong class="selectedName">لم يتم اختيار عميل</strong>
-      </div>
+ <section id="tab-stock" class="card hidden">
+  <h3 data-i18n="stock">مخزون مياه نوفا</h3>
 
-      <label for="redeemKind">المنتج</label>
-      <select id="redeemKind">
-        <option value="protein">بروتين شيك</option>
-        <option value="bowl">هيلثي بول</option>
-        <option value="smoothie">سموذي</option>
-        <option value="water">مياه نوفا</option>
-      </select>
+  <div class="message warning" data-i18n="stockAdmin">
+   إضافة المخزون متاحة للإدارة فقط.
+  </div>
 
-      <div class="message warning">
-        سيتم خصم وحدة واحدة من رصيد المشترك بعد تأكيد الصرف.
-      </div>
+  <div id="stockOverview" class="stock-grid"></div>
 
-      <button id="redeemBtn" class="full" type="button">
-        تأكيد صرف وحدة واحدة
-      </button>
+  <label data-i18n="selectBranch">اختيار الفرع</label>
+  <select id="stockBranch">
+   <option value="1" data-i18n="safwa">الصفوة</option>
+   <option value="2" data-i18n="majmaah">المجمعة</option>
+   <option value="3" data-i18n="muzahimiyah">المزاحمية</option>
+  </select>
 
-      <div id="redeemResult"></div>
-    </section>
+  <label data-i18n="quantity">عدد العبوات المستلمة</label>
+  <input id="stockUnits" type="number" min="1" max="100000" step="1">
 
-    <!-- WALLET -->
-    <section id="tab-wallet" class="card hidden">
-      <h3>المحفظة والمكافآت</h3>
+  <button id="stockReceiveBtn" class="full" data-i18n="addStock">
+   إضافة المخزون
+  </button>
 
-      <div class="info">
-        العميل المحدد:
-        <strong class="selectedName">لم يتم اختيار عميل</strong>
-      </div>
+  <div id="stockResult"></div>
 
-      <div class="row">
-        <span>رصيد المحفظة</span>
-        <strong id="walletBalance">—</strong>
-      </div>
+  <button id="stockRefreshBtn" class="full light" data-i18n="refresh">
+   تحديث البيانات
+  </button>
+ </section>
 
-      <div class="row">
-        <span>رصيد المكافآت</span>
-        <strong id="promoBalance">—</strong>
-      </div>
-
-      <p class="muted">
-        شحن المحفظة متاح من قسم بيع الباقات.
-        الشراء المباشر من المحفظة غير مفعّل في هذه النسخة.
-      </p>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section id="tab-overview" class="card hidden">
-      <h3>ملخص الفرع</h3>
-
-      <div id="overviewResult"></div>
-
-      <button id="refreshBtn" class="full light" type="button">
-        تحديث البيانات
-      </button>
-    </section>
-
-  </section>
-
+</section>
 </main>
 
-<footer>
-  © TSK ACTIVE — MEMBERSHIP SYSTEM
-</footer>
+<footer>© TSK ACTIVE — MEMBERSHIP SYSTEM</footer>
 
 <script>
 "use strict";
 
-const SUPABASE_URL =
-  "https://qitrsjlkshhuvrtbswll.supabase.co";
+const URL_BASE="https://qitrsjlkshhuvrtbswll.supabase.co";
+const API_KEY="sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
+const LOGIN_URL=URL_BASE+"/functions/v1/tsk-employee-login";
+const STORAGE_KEY="tsk_active_membership_session";
 
-const SUPABASE_KEY =
-  "sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
-
-const LOGIN_URL =
-  SUPABASE_URL + "/functions/v1/tsk-employee-login";
-
-const BRANCHES = {
-  1: "الصفوة",
-  2: "المجمعة",
-  3: "المزاحمية"
+const BRANCHES={
+ 1:"الصفوة",
+ 2:"المجمعة",
+ 3:"المزاحمية"
 };
 
-const PRODUCT_NAMES = {
-  protein: "بروتين شيك",
-  bowl: "هيلثي بول",
-  smoothie: "سموذي",
-  water: "مياه نوفا"
+const PRODUCT_NAMES={
+ protein:"بروتين شيك",
+ bowl:"هيلثي بول",
+ smoothie:"سموذي",
+ water:"مياه نوفا"
 };
 
-const STORAGE_KEY = "tsk_active_membership_session";
+const translations={
+ ar:{
+  subtitle:"العضويات • الباقات • المحفظة • المكافآت",
+  login:"تسجيل دخول الموظفين",
+  employee:"رقم الموظف",
+  password:"كلمة المرور",
+  loginBtn:"تسجيل الدخول",
+  dashboard:"لوحة الموظف",
+  branch:"الفرع",
+  logout:"تسجيل الخروج",
+  search:"بحث عن عضو",
+  register:"عضو جديد",
+  sale:"بيع باقة",
+  redeem:"صرف منتج",
+  wallet:"المحفظة",
+  reports:"التقارير",
+  stock:"مخزون مياه نوفا",
+  searchBtn:"بحث",
+  name:"اسم العميل",
+  phone:"رقم الجوال",
+  createMember:"إنشاء العضوية",
+  selectedMember:"العميل المحدد",
+  package:"الباقة",
+  price:"السعر",
+  payment:"طريقة الدفع",
+  cash:"نقدًا",
+  pos:"نقاط البيع",
+  confirmPayment:"أؤكد استلام المبلغ فعليًا",
+  confirmSale:"تأكيد البيع",
+  product:"المنتج",
+  protein:"بروتين شيك",
+  bowl:"هيلثي بول",
+  smoothie:"سموذي",
+  water:"مياه نوفا",
+  redeemWarning:"سيتم خصم وحدة واحدة من رصيد المشترك بعد التأكيد.",
+  confirmRedeem:"تأكيد صرف وحدة واحدة",
+  walletBalance:"رصيد المحفظة",
+  rewards:"رصيد المكافآت",
+  refresh:"تحديث البيانات",
+  stockAdmin:"إضافة المخزون متاحة للإدارة فقط.",
+  selectBranch:"اختيار الفرع",
+  safwa:"الصفوة",
+  majmaah:"المجمعة",
+  muzahimiyah:"المزاحمية",
+  quantity:"عدد العبوات المستلمة",
+  addStock:"إضافة المخزون"
+ },
+ en:{
+  subtitle:"Memberships • Packages • Wallet • Rewards",
+  login:"Employee Login",
+  employee:"Employee Number",
+  password:"Password",
+  loginBtn:"Sign In",
+  dashboard:"Employee Dashboard",
+  branch:"Branch",
+  logout:"Log Out",
+  search:"Find Member",
+  register:"New Member",
+  sale:"Sell Package",
+  redeem:"Redeem Product",
+  wallet:"Wallet",
+  reports:"Reports",
+  stock:"Nova Water Inventory",
+  searchBtn:"Search",
+  name:"Customer Name",
+  phone:"Mobile Number",
+  createMember:"Create Membership",
+  selectedMember:"Selected Member",
+  package:"Package",
+  price:"Price",
+  payment:"Payment Method",
+  cash:"Cash",
+  pos:"Card / POS",
+  confirmPayment:"I confirm payment was received",
+  confirmSale:"Confirm Sale",
+  product:"Product",
+  protein:"Protein Shake",
+  bowl:"Healthy Bowl",
+  smoothie:"Smoothie",
+  water:"Nova Water",
+  redeemWarning:"One unit will be deducted after confirmation.",
+  confirmRedeem:"Redeem One Unit",
+  walletBalance:"Wallet Balance",
+  rewards:"Rewards Balance",
+  refresh:"Refresh",
+  stockAdmin:"Only administrators can receive inventory.",
+  selectBranch:"Select Branch",
+  safwa:"Al Safwa",
+  majmaah:"Al Majmaah",
+  muzahimiyah:"Al Muzahimiyah",
+  quantity:"Quantity Received",
+  addStock:"Add Inventory"
+ },
+ bn:{
+  subtitle:"সদস্যপদ • প্যাকেজ • ওয়ালেট • পুরস্কার",
+  login:"কর্মচারী লগইন",
+  employee:"কর্মচারী নম্বর",
+  password:"পাসওয়ার্ড",
+  loginBtn:"লগইন",
+  dashboard:"কর্মচারী ড্যাশবোর্ড",
+  branch:"শাখা",
+  logout:"লগআউট",
+  search:"সদস্য খুঁজুন",
+  register:"নতুন সদস্য",
+  sale:"প্যাকেজ বিক্রি",
+  redeem:"পণ্য প্রদান",
+  wallet:"ওয়ালেট",
+  reports:"রিপোর্ট",
+  stock:"নোভা পানির স্টক",
+  searchBtn:"অনুসন্ধান",
+  name:"গ্রাহকের নাম",
+  phone:"মোবাইল নম্বর",
+  createMember:"সদস্য তৈরি করুন",
+  selectedMember:"নির্বাচিত সদস্য",
+  package:"প্যাকেজ",
+  price:"মূল্য",
+  payment:"পেমেন্ট পদ্ধতি",
+  cash:"নগদ",
+  pos:"কার্ড / POS",
+  confirmPayment:"আমি পেমেন্ট গ্রহণ করেছি",
+  confirmSale:"বিক্রি নিশ্চিত করুন",
+  product:"পণ্য",
+  protein:"প্রোটিন শেক",
+  bowl:"হেলদি বোল",
+  smoothie:"স্মুদি",
+  water:"নোভা পানি",
+  redeemWarning:"নিশ্চিত করলে একটি ইউনিট কাটা হবে।",
+  confirmRedeem:"একটি ইউনিট প্রদান করুন",
+  walletBalance:"ওয়ালেট ব্যালেন্স",
+  rewards:"পুরস্কার ব্যালেন্স",
+  refresh:"রিফ্রেশ",
+  stockAdmin:"শুধুমাত্র অ্যাডমিন স্টক যোগ করতে পারবেন।",
+  selectBranch:"শাখা নির্বাচন করুন",
+  safwa:"আল সাফওয়া",
+  majmaah:"আল মাজমাআহ",
+  muzahimiyah:"আল মুজাহিমিয়াহ",
+  quantity:"প্রাপ্ত বোতলের সংখ্যা",
+  addStock:"স্টক যোগ করুন"
+ }
+};
 
-let session = null;
-let staff = null;
-let selectedMember = null;
-let catalog = [];
-let pendingRedeem = null;
-let busy = false;
+let session=null;
+let staff=null;
+let selectedMember=null;
+let catalog=[];
+let pendingRedeem=null;
+let busy=false;
 
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[character]);
+function t(key){
+ const lang=$("languageSelect").value;
+ return translations[lang]?.[key]||translations.ar[key]||key;
 }
 
-function money(value) {
-  return Number(value || 0).toFixed(2) + " ريال";
+function applyLanguage(){
+ const lang=$("languageSelect").value;
+ localStorage.setItem("tsk_language",lang);
+
+ document.documentElement.lang=lang;
+ document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+
+ document.querySelectorAll("[data-i18n]").forEach(el=>{
+  el.textContent=t(el.dataset.i18n);
+ });
+
+ if(staff){
+  $("roleText").textContent=
+   staff.role==="admin"
+   ?(lang==="ar"?"الإدارة":lang==="en"?"Admin":"অ্যাডমিন")
+   :(lang==="ar"?"الكاشير":lang==="en"?"Cashier":"ক্যাশিয়ার");
+
+  $("branchText").textContent=branchName(staff.branch_id);
+ }
 }
 
-function notice(id, message, isError = false) {
-  $(id).innerHTML =
-    '<div class="message ' +
-    (isError ? "error" : "") +
-    '">' +
-    escapeHTML(message) +
-    "</div>";
+function branchName(id){
+ const lang=$("languageSelect").value;
+ const names={
+  ar:{1:"الصفوة",2:"المجمعة",3:"المزاحمية"},
+  en:{1:"Al Safwa",2:"Al Majmaah",3:"Al Muzahimiyah"},
+  bn:{1:"আল সাফওয়া",2:"আল মাজমাআহ",3:"আল মুজাহিমিয়াহ"}
+ };
+ return names[lang]?.[id]||BRANCHES[id]||"—";
 }
 
-function clearNotice(id) {
-  $(id).innerHTML = "";
+function escapeHTML(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#39;"
+ })[c]);
 }
 
-function branchId() {
-  if (!staff) {
-    throw new Error("يرجى تسجيل الدخول");
-  }
-
-  if (staff.role === "cashier") {
-    const id = Number(staff.branch_id);
-
-    if (!Number.isInteger(id) || id < 1) {
-      throw new Error("لم يتم تحديد فرع الموظف");
-    }
-
-    return id;
-  }
-
-  // Admin must explicitly choose a branch for write operations.
-  throw new Error(
-    "العمليات التشغيلية تتطلب تحديد فرع. استخدمي حساب كاشير الفرع حاليًا."
-  );
+function money(v){
+ return Number(v||0).toFixed(2)+" SAR";
 }
 
-function clearSelectedMember() {
-  selectedMember = null;
-  pendingRedeem = null;
+function notice(id,message,error=false){
+ $(id).innerHTML=
+  '<div class="message '+(error?"error":"")+'">'+
+  escapeHTML(message)+'</div>';
+}
 
-  document.querySelectorAll(".selectedName").forEach(element => {
-    element.textContent = "لم يتم اختيار عميل";
+function clearNotice(id){
+ $(id).innerHTML="";
+}
+
+function saveSession(){
+ sessionStorage.setItem(
+  STORAGE_KEY,
+  JSON.stringify({session,staff})
+ );
+}
+
+function logout(message=""){
+ sessionStorage.removeItem(STORAGE_KEY);
+ session=null;
+ staff=null;
+ catalog=[];
+ selectedMember=null;
+ pendingRedeem=null;
+
+ $("appPage").classList.add("hidden");
+ $("loginPage").classList.remove("hidden");
+ $("password").value="";
+
+ if(message)notice("loginMessage",message,true);
+}
+
+async function login(){
+ if(busy)return;
+
+ const employee_number=$("employee").value.trim();
+ const password=$("password").value;
+
+ if(!employee_number||!password){
+  notice("loginMessage","Enter employee number and password",true);
+  return;
+ }
+
+ busy=true;
+ $("loginBtn").disabled=true;
+ clearNotice("loginMessage");
+
+ try{
+  const response=await fetch(LOGIN_URL,{
+   method:"POST",
+   headers:{
+    "Content-Type":"application/json",
+    "apikey":API_KEY
+   },
+   body:JSON.stringify({employee_number,password})
   });
 
-  $("walletBalance").textContent = "—";
-  $("promoBalance").textContent = "—";
-}
+  const data=await response.json();
 
-function saveSession() {
-  sessionStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({ session, staff })
-  );
-}
-
-function logout(message = "") {
-  sessionStorage.removeItem(STORAGE_KEY);
-
-  session = null;
-  staff = null;
-  catalog = [];
-  clearSelectedMember();
-
-  $("appPage").classList.add("hidden");
-  $("loginPage").classList.remove("hidden");
-  $("password").value = "";
-
-  if (message) {
-    notice("loginMessage", message, true);
-  }
-}
-
-async function login() {
-  if (busy) return;
-
-  const employee_number = $("employee").value.trim();
-  const password = $("password").value;
-
-  if (!employee_number || !password) {
-    notice(
-      "loginMessage",
-      "أدخلي رقم الموظف وكلمة المرور",
-      true
-    );
-    return;
+  if(!response.ok||!data.access_token||!data.user){
+   throw new Error(data.error||"Login failed");
   }
 
-  busy = true;
-  $("loginBtn").disabled = true;
-  clearNotice("loginMessage");
-
-  try {
-    const response = await fetch(LOGIN_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY
-      },
-      body: JSON.stringify({
-        employee_number,
-        password
-      })
-    });
-
-    const data = await response.json();
-
-    if (
-      !response.ok ||
-      !data.access_token ||
-      !data.refresh_token ||
-      !data.user
-    ) {
-      throw new Error(
-        data.error || "رقم الموظف أو كلمة المرور غير صحيحة"
-      );
-    }
-
-    session = {
-      access_token: data.access_token,
-      refresh_token: data.refresh_token,
-      expires_at:
-        Date.now() + Number(data.expires_in || 3600) * 1000
-    };
-
-    staff = data.user;
-
-    saveSession();
-
-    $("password").value = "";
-    await showApp();
-
-  } catch (error) {
-    notice("loginMessage", error.message, true);
-  } finally {
-    busy = false;
-    $("loginBtn").disabled = false;
-  }
-}
-
-async function showApp() {
-  $("loginPage").classList.add("hidden");
-  $("appPage").classList.remove("hidden");
-
-  $("roleText").textContent =
-    staff.role === "admin" ? "الإدارة" : "الكاشير";
-
-  $("employeeText").textContent =
-    staff.employee_number || "—";
-
-  $("branchText").textContent =
-    staff.role === "admin"
-      ? "جميع الفروع"
-      : BRANCHES[staff.branch_id] || "غير محدد";
-
-  openTab("search");
-
-  await loadOverview();
-}
-
-async function refreshAccessToken() {
-  if (!session?.refresh_token) {
-    throw new Error("انتهت الجلسة. سجلي الدخول مجددًا.");
-  }
-
-  const response = await fetch(
-    SUPABASE_URL + "/auth/v1/token?grant_type=refresh_token",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY
-      },
-      body: JSON.stringify({
-        refresh_token: session.refresh_token
-      })
-    }
-  );
-
-  const data = await response.json();
-
-  if (!response.ok || !data.access_token) {
-    logout("انتهت الجلسة. سجلي الدخول مجددًا.");
-    throw new Error("انتهت الجلسة");
-  }
-
-  session = {
-    access_token: data.access_token,
-    refresh_token:
-      data.refresh_token || session.refresh_token,
-    expires_at:
-      Date.now() + Number(data.expires_in || 3600) * 1000
+  session={
+   access_token:data.access_token,
+   refresh_token:data.refresh_token,
+   expires_at:Date.now()+Number(data.expires_in||3600)*1000
   };
 
+  staff=data.user;
   saveSession();
+  $("password").value="";
+  await showApp();
+
+ }catch(e){
+  notice("loginMessage",e.message,true);
+ }finally{
+  busy=false;
+  $("loginBtn").disabled=false;
+ }
 }
 
-async function rpc(name, params = {}) {
-  if (!session?.access_token) {
-    throw new Error("يرجى تسجيل الدخول");
+async function refreshAccessToken(){
+ if(!session?.refresh_token)throw new Error("Session expired");
+
+ const response=await fetch(
+  URL_BASE+"/auth/v1/token?grant_type=refresh_token",{
+   method:"POST",
+   headers:{
+    "Content-Type":"application/json",
+    "apikey":API_KEY
+   },
+   body:JSON.stringify({refresh_token:session.refresh_token})
+  }
+ );
+
+ const data=await response.json();
+
+ if(!response.ok||!data.access_token){
+  logout("Session expired");
+  throw new Error("Session expired");
+ }
+
+ session={
+  access_token:data.access_token,
+  refresh_token:data.refresh_token||session.refresh_token,
+  expires_at:Date.now()+Number(data.expires_in||3600)*1000
+ };
+
+ saveSession();
+}
+
+async function rpc(name,params={}){
+ if(!session?.access_token)throw new Error("Login required");
+
+ if(Date.now()>session.expires_at-60000){
+  await refreshAccessToken();
+ }
+
+ const response=await fetch(
+  URL_BASE+"/rest/v1/rpc/"+name,{
+   method:"POST",
+   headers:{
+    "Content-Type":"application/json",
+    "apikey":API_KEY,
+    "Authorization":"Bearer "+session.access_token
+   },
+   body:JSON.stringify(params)
+  }
+ );
+
+ const data=await response.json().catch(()=>null);
+
+ if(!response.ok){
+  throw new Error(data?.message||data?.error||"Operation failed");
+ }
+
+ return data;
+}
+
+function branchId(){
+ if(!staff)throw new Error("Login required");
+
+ if(staff.role!=="cashier"){
+  throw new Error("Select a cashier account for branch operations");
+ }
+
+ const id=Number(staff.branch_id);
+
+ if(!Number.isInteger(id)||id<1){
+  throw new Error("Invalid employee branch");
+ }
+
+ return id;
+}
+
+async function showApp(){
+ $("loginPage").classList.add("hidden");
+ $("appPage").classList.remove("hidden");
+
+ $("employeeText").textContent=staff.employee_number||"—";
+
+ $("stockTabButton").classList.toggle(
+  "hidden",staff.role!=="admin"
+ );
+
+ $("branchText").textContent=
+  staff.role==="admin"?"جميع الفروع":branchName(staff.branch_id);
+
+ applyLanguage();
+ openTab("search");
+ await loadOverview();
+}
+
+function openTab(name){
+ if(name==="stock"&&staff?.role!=="admin")return;
+
+ document.querySelectorAll('[id^="tab-"]').forEach(el=>{
+  el.classList.add("hidden");
+ });
+
+ $("tab-"+name)?.classList.remove("hidden");
+
+ document.querySelectorAll("[data-tab]").forEach(btn=>{
+  btn.classList.toggle("active",btn.dataset.tab===name);
+ });
+
+ if(name==="overview")loadOverview();
+ if(name==="stock")loadStock();
+}
+
+function selectMember(member,data){
+ selectedMember=member;
+ pendingRedeem=null;
+
+ document.querySelectorAll(".selectedName").forEach(el=>{
+  el.textContent=member.full_name+" — "+member.member_no;
+ });
+
+ $("walletBalance").textContent=money(data?.wallet?.balance);
+ $("promoBalance").textContent=money(data?.wallet?.promo_balance);
+}
+
+async function lookupMember(){
+ const query=$("searchQuery").value.trim();
+
+ if(!query){
+  notice("memberResult","Enter membership number or phone",true);
+  return;
+ }
+
+ $("searchBtn").disabled=true;
+
+ try{
+  const data=await rpc("tsk_member_lookup",{p_query:query});
+  const member=data.member;
+
+  if(!member?.id)throw new Error("Member not found");
+
+  selectMember(member,data);
+
+  let html=
+   '<div class="info"><strong>'+
+   escapeHTML(member.full_name)+'</strong><br>'+
+   escapeHTML(member.member_no)+'<br>'+
+   escapeHTML(member.phone)+'</div>';
+
+  for(const p of data.packages||[]){
+   html+='<div class="row"><span>'+
+    escapeHTML(PRODUCT_NAMES[p.kind]||p.kind)+
+    '</span><strong>'+Number(p.remaining||0)+
+    '</strong></div>';
   }
 
-  if (Date.now() > session.expires_at - 60000) {
-    await refreshAccessToken();
+  $("memberResult").innerHTML=html;
+
+ }catch(e){
+  selectedMember=null;
+  notice("memberResult",e.message,true);
+ }finally{
+  $("searchBtn").disabled=false;
+ }
+}
+
+async function registerMember(){
+ const name=$("newName").value.trim();
+ const phone=$("newPhone").value.trim();
+
+ if(name.length<2||!/^05[0-9]{8}$/.test(phone)){
+  notice("registerResult","Invalid name or phone",true);
+  return;
+ }
+
+ $("registerBtn").disabled=true;
+
+ try{
+  const data=await rpc("tsk_new_member",{
+   p_name:name,
+   p_phone:phone,
+   p_branch:branchId()
+  });
+
+  notice("registerResult","Member created: "+data.member_no);
+  $("searchQuery").value=data.member_no;
+  await lookupMember();
+  openTab("search");
+
+ }catch(e){
+  notice("registerResult",e.message,true);
+ }finally{
+  $("registerBtn").disabled=false;
+ }
+}
+
+function fillCatalog(){
+ $("catalogSelect").innerHTML="";
+
+ for(const item of catalog){
+  const option=document.createElement("option");
+  option.value=item.code;
+  option.textContent=item.title_ar+" — "+money(item.price);
+  $("catalogSelect").appendChild(option);
+ }
+
+ showPrice();
+}
+
+function showPrice(){
+ const item=catalog.find(x=>x.code===$("catalogSelect").value);
+ $("selectedPrice").textContent=item?money(item.price):"—";
+}
+
+async function purchasePackage(){
+ if(!selectedMember){
+  notice("saleResult","Select a member first",true);
+  return;
+ }
+
+ if(!$("paymentConfirmed").checked){
+  notice("saleResult","Confirm payment received",true);
+  return;
+ }
+
+ const code=$("catalogSelect").value;
+ const method=$("paymentMethod").value;
+ const item=catalog.find(x=>x.code===code);
+
+ if(!item)return;
+
+ if(!confirm("Confirm sale: "+item.title_ar+" — "+money(item.price)))return;
+
+ $("purchaseBtn").disabled=true;
+
+ try{
+  const data=await rpc("tsk_purchase",{
+   p_member:selectedMember.id,
+   p_code:code,
+   p_method:method,
+   p_branch:branchId()
+  });
+
+  $("paymentConfirmed").checked=false;
+  notice("saleResult","Sale recorded: "+data.purchase_id);
+
+  $("searchQuery").value=selectedMember.member_no;
+  await lookupMember();
+
+ }catch(e){
+  notice("saleResult",e.message,true);
+ }finally{
+  $("purchaseBtn").disabled=false;
+ }
+}
+
+async function redeemProduct(){
+ if(!selectedMember){
+  notice("redeemResult","Select a member first",true);
+  return;
+ }
+
+ let branch;
+
+ try{
+  branch=branchId();
+ }catch(e){
+  notice("redeemResult",e.message,true);
+  return;
+ }
+
+ const kind=$("redeemKind").value;
+
+ if(!pendingRedeem||
+    pendingRedeem.member!==selectedMember.id||
+    pendingRedeem.kind!==kind||
+    pendingRedeem.branch!==branch){
+  pendingRedeem={
+   id:crypto.randomUUID(),
+   member:selectedMember.id,
+   kind,
+   branch
+  };
+ }
+
+ const request=pendingRedeem;
+
+ if(!confirm("Confirm redeem one unit?"))return;
+
+ $("redeemBtn").disabled=true;
+
+ try{
+  const data=await rpc("tsk_redeem_safe",{
+   p_member:request.member,
+   p_kind:request.kind,
+   p_branch:request.branch,
+   p_request_id:request.id
+  });
+
+  if(data.status==="already_processed"){
+   notice("redeemResult","Already processed. No duplicate deduction.");
+  }else{
+   notice("redeemResult","Redeemed. Remaining: "+data.remaining_in_package);
   }
 
-  const response = await fetch(
-    SUPABASE_URL + "/rest/v1/rpc/" + name,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + session.access_token
-      },
-      body: JSON.stringify(params)
-    }
+  pendingRedeem=null;
+
+  $("searchQuery").value=selectedMember.member_no;
+  await lookupMember();
+
+ }catch(e){
+  notice(
+   "redeemResult",
+   e.message+" — Check member history before retrying.",
+   true
+  );
+ }finally{
+  $("redeemBtn").disabled=false;
+ }
+}
+
+async function loadOverview(){
+ if(!staff)return;
+
+ $("refreshBtn").disabled=true;
+
+ try{
+  const data=await rpc("tsk_overview",{
+   p_branch:staff.role==="admin"?null:Number(staff.branch_id)
+  });
+
+  catalog=Array.isArray(data.catalog)?data.catalog:[];
+  fillCatalog();
+
+  $("overviewResult").innerHTML=
+   '<div class="row"><span>Members</span><strong>'+
+   Number(data.members||0)+'</strong></div>'+
+   '<div class="row"><span>Sales</span><strong>'+
+   money(data.sales)+'</strong></div>'+
+   '<div class="row"><span>Nova Water Stock</span><strong>'+
+   Number(data.water_stock||0)+'</strong></div>';
+
+ }catch(e){
+  notice("overviewResult",e.message,true);
+ }finally{
+  $("refreshBtn").disabled=false;
+ }
+}
+
+async function loadStock(){
+ if(staff?.role!=="admin")return;
+
+ try{
+  const result=await rpc("tsk_stock_overview",{});
+
+  const rows=Array.isArray(result)?result:[];
+
+  $("stockOverview").innerHTML=rows.map(item=>
+   '<div class="stock-card">'+
+   '<span>'+escapeHTML(branchName(item.branch_id))+'</span>'+
+   '<strong>'+Number(item.water_on_hand||0)+'</strong>'+
+   '</div>'
+  ).join("");
+
+ }catch(e){
+  notice("stockResult",e.message,true);
+ }
+}
+
+async function receiveStock(){
+ if(staff?.role!=="admin"){
+  notice("stockResult","Admin only",true);
+  return;
+ }
+
+ const branch=Number($("stockBranch").value);
+ const units=Number($("stockUnits").value);
+
+ if(!Number.isInteger(units)||units<1||units>100000){
+  notice("stockResult","Enter a valid quantity",true);
+  return;
+ }
+
+ if(!confirm(
+  "Confirm adding "+units+
+  " Nova water bottles to "+branchName(branch)+"?"
+ ))return;
+
+ $("stockReceiveBtn").disabled=true;
+
+ try{
+  const newBalance=await rpc("tsk_stock_receive",{
+   p_branch:branch,
+   p_units:units
+  });
+
+  notice(
+   "stockResult",
+   "Inventory updated. New balance: "+newBalance
   );
 
-  const data = await response.json().catch(() => null);
+  $("stockUnits").value="";
+  await loadStock();
+  await loadOverview();
 
-  if (!response.ok) {
-    throw new Error(
-      data?.message || data?.error || "تعذرت العملية"
-    );
-  }
-
-  return data;
+ }catch(e){
+  notice("stockResult",e.message,true);
+ }finally{
+  $("stockReceiveBtn").disabled=false;
+ }
 }
 
-function openTab(name) {
-  document.querySelectorAll('[id^="tab-"]').forEach(element => {
-    element.classList.add("hidden");
-  });
+function bindEvents(){
+ $("loginForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  login();
+ });
 
-  const target = $("tab-" + name);
+ $("logoutBtn").addEventListener("click",()=>logout());
 
-  if (!target) return;
+ $("languageSelect").addEventListener("change",applyLanguage);
 
-  target.classList.remove("hidden");
+ document.querySelectorAll("[data-tab]").forEach(btn=>{
+  btn.addEventListener("click",()=>openTab(btn.dataset.tab));
+ });
 
-  document.querySelectorAll("[data-tab]").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.tab === name
-    );
-  });
+ $("searchBtn").addEventListener("click",lookupMember);
+ $("registerBtn").addEventListener("click",registerMember);
+ $("purchaseBtn").addEventListener("click",purchasePackage);
+ $("redeemBtn").addEventListener("click",redeemProduct);
+ $("refreshBtn").addEventListener("click",loadOverview);
+ $("catalogSelect").addEventListener("change",showPrice);
+ $("stockReceiveBtn").addEventListener("click",receiveStock);
+ $("stockRefreshBtn").addEventListener("click",loadStock);
 
-  if (name === "overview" && staff) {
-    loadOverview();
-  }
+ $("redeemKind").addEventListener("change",()=>{
+  pendingRedeem=null;
+ });
 }
 
-function selectMember(member, data) {
-  selectedMember = member;
-  pendingRedeem = null;
+function restoreSession(){
+ try{
+  const saved=JSON.parse(sessionStorage.getItem(STORAGE_KEY));
 
-  document.querySelectorAll(".selectedName").forEach(element => {
-    element.textContent =
-      member.full_name + " — " + member.member_no;
-  });
+  if(saved?.session?.access_token&&saved?.staff){
+   session=saved.session;
+   staff=saved.staff;
 
-  $("walletBalance").textContent =
-    money(data?.wallet?.balance);
-
-  $("promoBalance").textContent =
-    money(data?.wallet?.promo_balance);
+   if(Date.now()<session.expires_at){
+    showApp();
+   }else{
+    refreshAccessToken().then(showApp).catch(()=>logout());
+   }
+  }
+ }catch{
+  sessionStorage.removeItem(STORAGE_KEY);
+ }
 }
 
-async function lookupMember() {
-  const query = $("searchQuery").value.trim();
-
-  if (!query) {
-    notice(
-      "memberResult",
-      "أدخلي رقم العضوية أو الجوال",
-      true
-    );
-    return;
-  }
-
-  clearSelectedMember();
-  $("searchBtn").disabled = true;
-
-  try {
-    const data = await rpc("tsk_member_lookup", {
-      p_query: query
-    });
-
-    if (!data?.member?.id) {
-      throw new Error("لم يتم العثور على العضو");
-    }
-
-    const member = data.member;
-    selectMember(member, data);
-
-    const packages = Array.isArray(data.packages)
-      ? data.packages
-      : [];
-
-    let html =
-      '<div class="info">' +
-      "<strong>" + escapeHTML(member.full_name) + "</strong><br>" +
-      "رقم العضوية: " + escapeHTML(member.member_no) + "<br>" +
-      "الجوال: " + escapeHTML(member.phone) +
-      "</div><h3>أرصدة الباقات</h3>";
-
-    if (!packages.length) {
-      html += '<p class="muted">لا توجد باقات فعالة.</p>';
-    }
-
-    for (const item of packages) {
-      html +=
-        '<div class="row">' +
-        "<span>" +
-        escapeHTML(PRODUCT_NAMES[item.kind] || item.kind) +
-        "</span>" +
-        "<strong>" +
-        Number(item.remaining || 0) +
-        " متبقي</strong>" +
-        "</div>";
-    }
-
-    $("memberResult").innerHTML = html;
-
-  } catch (error) {
-    notice("memberResult", error.message, true);
-  } finally {
-    $("searchBtn").disabled = false;
-  }
-}
-
-async function registerMember() {
-  const name = $("newName").value.trim();
-  const phone = $("newPhone").value.trim();
-
-  if (name.length < 2 || !/^05[0-9]{8}$/.test(phone)) {
-    notice(
-      "registerResult",
-      "أدخلي اسمًا صحيحًا ورقم جوال يبدأ بـ 05",
-      true
-    );
-    return;
-  }
-
-  $("registerBtn").disabled = true;
-
-  try {
-    const data = await rpc("tsk_new_member", {
-      p_name: name,
-      p_phone: phone,
-      p_branch: branchId()
-    });
-
-    if (!data?.member_no) {
-      throw new Error("لم يتم استلام رقم العضوية");
-    }
-
-    notice(
-      "registerResult",
-      "تم إنشاء العضوية: " + data.member_no
-    );
-
-    $("searchQuery").value = data.member_no;
-    await lookupMember();
-    openTab("search");
-
-  } catch (error) {
-    notice("registerResult", error.message, true);
-  } finally {
-    $("registerBtn").disabled = false;
-  }
-}
-
-function fillCatalog() {
-  const select = $("catalogSelect");
-  select.innerHTML = "";
-
-  for (const item of catalog) {
-    const option = document.createElement("option");
-    option.value = item.code;
-    option.textContent =
-      item.title_ar + " — " + money(item.price);
-
-    select.appendChild(option);
-  }
-
-  showPrice();
-}
-
-function showPrice() {
-  const item = catalog.find(
-    product => product.code === $("catalogSelect").value
-  );
-
-  $("selectedPrice").textContent =
-    item ? money(item.price) : "—";
-}
-
-async function purchasePackage() {
-  if (!selectedMember) {
-    notice("saleResult", "ابحثي عن العميل أولًا", true);
-    return;
-  }
-
-  if (!$("paymentConfirmed").checked) {
-    notice(
-      "saleResult",
-      "يجب تأكيد استلام المبلغ قبل تسجيل البيع",
-      true
-    );
-    return;
-  }
-
-  const code = $("catalogSelect").value;
-  const method = $("paymentMethod").value;
-  const item = catalog.find(product => product.code === code);
-
-  if (!item) {
-    notice("saleResult", "اختاري الباقة", true);
-    return;
-  }
-
-  const approved = confirm(
-    "هل تؤكدين بيع " +
-    item.title_ar +
-    " بمبلغ " +
-    money(item.price) +
-    "؟"
-  );
-
-  if (!approved) return;
-
-  $("purchaseBtn").disabled = true;
-
-  try {
-    const data = await rpc("tsk_purchase", {
-      p_member: selectedMember.id,
-      p_code: code,
-      p_method: method,
-      p_branch: branchId()
-    });
-
-    $("paymentConfirmed").checked = false;
-
-    notice(
-      "saleResult",
-      "تم تسجيل البيع. رقم العملية: " +
-      (data.purchase_id || "—")
-    );
-
-    const memberNo = selectedMember.member_no;
-    $("searchQuery").value = memberNo;
-    await lookupMember();
-
-  } catch (error) {
-    notice(
-      "saleResult",
-      "تعذرت العملية: " + error.message +
-      ". تحققي من سجل المبيعات قبل إعادة المحاولة.",
-      true
-    );
-  } finally {
-    $("purchaseBtn").disabled = false;
-  }
-}
-
-async function redeemProduct() {
-  if (!selectedMember) {
-    notice(
-      "redeemResult",
-      "ابحثي عن العميل أولًا",
-      true
-    );
-    return;
-  }
-
-  const kind = $("redeemKind").value;
-  const memberId = selectedMember.id;
-
-  let branch;
-
-  try {
-    branch = branchId();
-  } catch (error) {
-    notice("redeemResult", error.message, true);
-    return;
-  }
-
-  if (
-    !pendingRedeem ||
-    pendingRedeem.member !== memberId ||
-    pendingRedeem.kind !== kind ||
-    pendingRedeem.branch !== branch
-  ) {
-    pendingRedeem = {
-      id: crypto.randomUUID(),
-      member: memberId,
-      kind: kind,
-      branch: branch
-    };
-  }
-
-  const request = pendingRedeem;
-
-  if (!confirm("هل تؤكدين صرف وحدة واحدة؟")) {
-    return;
-  }
-
-  $("redeemBtn").disabled = true;
-
-  try {
-    const data = await rpc("tsk_redeem_safe", {
-      p_member: request.member,
-      p_kind: request.kind,
-      p_branch: request.branch,
-      p_request_id: request.id
-    });
-
-    if (data.status === "already_processed") {
-      notice(
-        "redeemResult",
-        "هذه العملية مسجلة مسبقًا، ولم يُخصم المنتج مرة أخرى."
-      );
-    } else {
-      notice(
-        "redeemResult",
-        "تم صرف المنتج. المتبقي في الباقة: " +
-        data.remaining_in_package
-      );
-    }
-
-    pendingRedeem = null;
-
-    const memberNo = selectedMember.member_no;
-    $("searchQuery").value = memberNo;
-    await lookupMember();
-
-  } catch (error) {
-    notice(
-      "redeemResult",
-      "تعذرت العملية: " +
-      error.message +
-      ". لا تعيدي الصرف قبل التأكد من سجل العميل.",
-      true
-    );
-  } finally {
-    $("redeemBtn").disabled = false;
-  }
-}
-
-async function loadOverview() {
-  if (!staff) return;
-
-  $("refreshBtn").disabled = true;
-
-  try {
-    const data = await rpc("tsk_overview", {
-      p_branch:
-        staff.role === "admin"
-          ? null
-          : Number(staff.branch_id)
-    });
-
-    catalog = Array.isArray(data.catalog)
-      ? data.catalog
-      : [];
-
-    fillCatalog();
-
-    $("overviewResult").innerHTML =
-      '<div class="row">' +
-      "<span>عدد الأعضاء</span>" +
-      "<strong>" + Number(data.members || 0) + "</strong>" +
-      "</div>" +
-      '<div class="row">' +
-      "<span>إجمالي المبيعات المسجلة</span>" +
-      "<strong>" + money(data.sales) + "</strong>" +
-      "</div>" +
-      '<div class="row">' +
-      "<span>مخزون مياه نوفا</span>" +
-      "<strong>" +
-      Number(data.water_stock || 0) +
-      " عبوة</strong>" +
-      "</div>";
-
-  } catch (error) {
-    notice("overviewResult", error.message, true);
-  } finally {
-    $("refreshBtn").disabled = false;
-  }
-}
-
-function bindEvents() {
-  $("loginForm").addEventListener("submit", event => {
-    event.preventDefault();
-    login();
-  });
-
-  $("logoutBtn").addEventListener("click", () => {
-    logout();
-  });
-
-  document.querySelectorAll("[data-tab]").forEach(button => {
-    button.addEventListener("click", () => {
-      openTab(button.dataset.tab);
-    });
-  });
-
-  $("searchBtn").addEventListener("click", lookupMember);
-  $("registerBtn").addEventListener("click", registerMember);
-  $("purchaseBtn").addEventListener("click", purchasePackage);
-  $("redeemBtn").addEventListener("click", redeemProduct);
-  $("refreshBtn").addEventListener("click", loadOverview);
-  $("catalogSelect").addEventListener("change", showPrice);
-
-  $("redeemKind").addEventListener("change", () => {
-    pendingRedeem = null;
-  });
-
-  $("searchQuery").addEventListener("keydown", event => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      lookupMember();
-    }
-  });
-}
-
-function restoreSession() {
-  try {
-    const saved = JSON.parse(
-      sessionStorage.getItem(STORAGE_KEY)
-    );
-
-    if (
-      saved?.session?.access_token &&
-      saved?.session?.refresh_token &&
-      saved?.staff
-    ) {
-      session = saved.session;
-      staff = saved.staff;
-
-      if (Date.now() < session.expires_at) {
-        showApp();
-      } else {
-        refreshAccessToken()
-          .then(showApp)
-          .catch(() => logout());
-      }
-    } else {
-      sessionStorage.removeItem(STORAGE_KEY);
-    }
-
-  } catch (error) {
-    sessionStorage.removeItem(STORAGE_KEY);
-  }
-}
+$("languageSelect").value=
+ localStorage.getItem("tsk_language")||"ar";
 
 bindEvents();
+applyLanguage();
 restoreSession();
 </script>
 
