@@ -1,1 +1,458 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>الرئيسية | TSK WATER PASS</title><style>:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#142d4a;background:#f2f7fd}*{box-sizing:border-box}body{margin:0}.shell{max-width:960px;margin:auto;padding:24px 16px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #dbe6f2}.brand{font-weight:900;color:#0754a2;letter-spacing:.4px;font-size:22px}.tag{font-size:12px;background:#e3f0ff;color:#135fa7;padding:8px 11px;border-radius:30px}h1{font-size:clamp(25px,5vw,37px);margin:30px 0 10px}p{color:#5d7085;line-height:1.7}.card{background:white;border:1px solid #dfebf5;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 8px 28px #113f7209}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.stat{background:#f4f9ff;padding:18px;border-radius:14px}.stat strong{font-size:26px;color:#0a63b8;display:block}.muted{color:#667d94;font-size:13px}.bottles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}.bottle{height:65px;border:2px solid #c8d9e9;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#7690a8}.bottle.used{background:#0874d1;border-color:#0874d1;color:#fff;font-size:26px}label{font-size:14px;font-weight:700;display:block;margin:14px 0 7px}input,select{width:100%;border:1px solid #cadbea;border-radius:12px;padding:14px;font:inherit;font-size:16px;background:#fff}button{background:#076bc0;color:white;border:0;border-radius:12px;padding:14px 20px;font:inherit;font-weight:700;cursor:pointer;min-height:48px;margin-top:16px}button:disabled{background:#9fb7cc;cursor:not-allowed}.notice{border-right:4px solid #0b77c9;background:#eaf5ff;border-radius:10px;padding:14px 16px;font-size:14px;color:#27537d}.row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.links a{color:#0a65b2;text-decoration:none;margin-inline-start:14px;font-size:13px}footer{margin-top:40px;text-align:center;color:#71879c;font-size:12px}@media(max-width:400px){.bottles{gap:6px}.bottle{height:52px}.card{padding:17px}.brand{font-size:18px}}</style></head><body><div class="shell"><header><span class="brand">💧 TSK WATER PASS</span><span class="tag">ثلاث واجهات مستقلة</span></header><h1>مرحبًا بك في TSK WATER PASS</h1><p>اختر الصفحة المناسبة. كل واجهة في ملف مستقل.</p><div class="grid"><div class="card"><h2>المشترك</h2><p>عرض بطاقة المياه والرصيد.</p><a href="subscriber.html">فتح صفحة المشترك ←</a></div><div class="card"><h2>الكاشير</h2><p>بوابة الموظفين.</p><a href="cashier.html">فتح صفحة الكاشير ←</a></div><div class="card"><h2>الإدارة</h2><p>متابعة الفروع والتقارير.</p><a href="admin.html">فتح صفحة الإدارة ←</a></div></div><div class="notice">الموقع حاليًا للمعاينة فقط. فصل الصفحات لا يمنح حماية؛ الصلاحيات تُفرض داخل Supabase.</div><footer>TSK ACTIVE © 2026 · نسخة واجهة تجريبية — غير متصلة بقاعدة البيانات</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TSK ACTIVE | WATER PASS</title>
+
+<style>
+:root{
+  --green:#087a52;
+  --orange:#f39b25;
+  --black:#15211c;
+  --bg:#f4f7f5;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--black);
+}
+
+header{
+  background:#fff;
+  padding:22px;
+  text-align:center;
+  border-bottom:4px solid var(--green);
+}
+
+.logo{
+  font-size:29px;
+  font-weight:900;
+  color:var(--green);
+}
+
+.logo span{color:var(--orange)}
+
+.subtitle{
+  margin-top:7px;
+  font-size:14px;
+  color:#666;
+}
+
+.container{
+  max-width:460px;
+  margin:35px auto;
+  padding:20px;
+}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:27px;
+  box-shadow:0 8px 30px #0000000d;
+}
+
+h2{
+  text-align:center;
+  margin:0 0 25px;
+}
+
+label{
+  display:block;
+  margin:17px 0 8px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:15px;
+  font-size:17px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fff;
+}
+
+input:focus{
+  outline:2px solid var(--green);
+}
+
+button{
+  width:100%;
+  padding:16px;
+  margin-top:20px;
+  background:var(--green);
+  border:0;
+  border-radius:12px;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:disabled{opacity:.6}
+
+.secondary{background:var(--black)}
+
+.error{
+  color:#bd2424;
+  text-align:center;
+  margin-top:15px;
+  min-height:20px;
+}
+
+.success{
+  color:var(--green);
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 17px;
+  background:#e5f5ec;
+  color:var(--green);
+  border-radius:30px;
+  font-weight:bold;
+}
+
+.info{
+  padding:16px;
+  background:#f4f7f5;
+  border-radius:12px;
+  margin-top:15px;
+  line-height:1.9;
+}
+
+.hidden{display:none}
+
+footer{
+  text-align:center;
+  color:#999;
+  font-size:12px;
+  padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">TSK <span>ACTIVE</span></div>
+  <div class="subtitle">WATER PASS | اشتراك المياه</div>
+</header>
+
+<main class="container">
+
+  <div class="card" id="loginCard">
+
+    <select id="language" onchange="changeLanguage()">
+      <option value="ar">العربية</option>
+      <option value="en">English</option>
+      <option value="bn">বাংলা</option>
+    </select>
+
+    <h2 id="loginTitle" style="margin-top:25px">
+      تسجيل دخول الموظفين
+    </h2>
+
+    <form id="loginForm">
+
+      <label id="employeeLabel">رقم الموظف</label>
+
+      <input
+        id="employeeNumber"
+        type="text"
+        inputmode="numeric"
+        autocomplete="username"
+        placeholder="2690003"
+        required
+      >
+
+      <label id="passwordLabel">كلمة المرور</label>
+
+      <input
+        id="password"
+        type="password"
+        autocomplete="current-password"
+        required
+      >
+
+      <button id="loginButton" type="submit">
+        تسجيل الدخول
+      </button>
+
+    </form>
+
+    <div id="message" class="error"></div>
+
+  </div>
+
+  <div class="card hidden" id="dashboard">
+
+    <h2 id="welcomeTitle">مرحبًا بك</h2>
+
+    <div style="text-align:center">
+      <span class="badge" id="roleBadge"></span>
+    </div>
+
+    <div class="info">
+      <div>
+        <strong id="numberTitle">رقم الموظف:</strong>
+        <span id="showEmployee"></span>
+      </div>
+
+      <div>
+        <strong id="branchTitle">الفرع:</strong>
+        <span id="showBranch"></span>
+      </div>
+    </div>
+
+    <p class="success" id="loginSuccess">
+      تم تسجيل الدخول بنجاح
+    </p>
+
+    <div class="info" id="statusText">
+      تم ربط حسابك بنظام TSK WATER PASS.
+      عمليات الاشتراكات والصرف ستُفعّل بعد اختبار صلاحيات قاعدة البيانات.
+    </div>
+
+    <button class="secondary" onclick="logout()" id="logoutButton">
+      تسجيل الخروج
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+  © TSK ACTIVE — WATER PASS
+</footer>
+
+<script>
+const SUPABASE_URL =
+  "https://qitrsjlkshhuvrtbswll.supabase.co";
+
+const LOGIN_URL =
+  SUPABASE_URL + "/functions/v1/tsk-employee-login";
+
+const SUPABASE_KEY =
+  "sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
+
+const branches = {
+  1:"الصفوة",
+  2:"المجمعة",
+  3:"المزاحمية"
+};
+
+const translations = {
+  ar:{
+    login:"تسجيل دخول الموظفين",
+    employee:"رقم الموظف",
+    password:"كلمة المرور",
+    button:"تسجيل الدخول",
+    loading:"جارٍ تسجيل الدخول...",
+    welcome:"مرحبًا بك في TSK ACTIVE",
+    number:"رقم الموظف:",
+    branch:"الفرع:",
+    logout:"تسجيل الخروج",
+    success:"تم تسجيل الدخول بنجاح",
+    admin:"المدير",
+    cashier:"الكاشير",
+    all:"جميع الفروع",
+    error:"تعذر تسجيل الدخول. تحقق من البيانات.",
+    network:"تعذر الاتصال بالخادم."
+  },
+  en:{
+    login:"Employee Login",
+    employee:"Employee Number",
+    password:"Password",
+    button:"Sign In",
+    loading:"Signing in...",
+    welcome:"Welcome to TSK ACTIVE",
+    number:"Employee Number:",
+    branch:"Branch:",
+    logout:"Log Out",
+    success:"Login successful",
+    admin:"Administrator",
+    cashier:"Cashier",
+    all:"All Branches",
+    error:"Invalid login details.",
+    network:"Unable to connect to server."
+  },
+  bn:{
+    login:"কর্মচারী লগইন",
+    employee:"কর্মচারী নম্বর",
+    password:"পাসওয়ার্ড",
+    button:"লগইন করুন",
+    loading:"লগইন হচ্ছে...",
+    welcome:"TSK ACTIVE-এ স্বাগতম",
+    number:"কর্মচারী নম্বর:",
+    branch:"শাখা:",
+    logout:"লগআউট",
+    success:"সফলভাবে লগইন হয়েছে",
+    admin:"অ্যাডমিন",
+    cashier:"ক্যাশিয়ার",
+    all:"সব শাখা",
+    error:"লগইন তথ্য সঠিক নয়।",
+    network:"সার্ভারের সাথে সংযোগ করা যায়নি।"
+  }
+};
+
+let currentUser = null;
+
+function getLang(){
+  return document.getElementById("language").value;
+}
+
+function changeLanguage(){
+  const lang = getLang();
+  const t = translations[lang];
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir =
+    lang === "ar" ? "rtl" : "ltr";
+
+  document.getElementById("loginTitle").textContent=t.login;
+  document.getElementById("employeeLabel").textContent=t.employee;
+  document.getElementById("passwordLabel").textContent=t.password;
+  document.getElementById("loginButton").textContent=t.button;
+  document.getElementById("welcomeTitle").textContent=t.welcome;
+  document.getElementById("numberTitle").textContent=t.number;
+  document.getElementById("branchTitle").textContent=t.branch;
+  document.getElementById("logoutButton").textContent=t.logout;
+  document.getElementById("loginSuccess").textContent=t.success;
+
+  if(currentUser) showUser(currentUser);
+}
+
+function showUser(user){
+  currentUser=user;
+
+  const t=translations[getLang()];
+
+  document.getElementById("loginCard")
+    .classList.add("hidden");
+
+  document.getElementById("dashboard")
+    .classList.remove("hidden");
+
+  document.getElementById("showEmployee")
+    .textContent=user.employee_number;
+
+  document.getElementById("roleBadge")
+    .textContent=user.role==="admin"
+      ? t.admin : t.cashier;
+
+  document.getElementById("showBranch")
+    .textContent=user.role==="admin"
+      ? t.all
+      : (branches[user.branch_id] || "—");
+}
+
+document.getElementById("loginForm")
+  .addEventListener("submit",async function(event){
+
+  event.preventDefault();
+
+  const lang=getLang();
+  const t=translations[lang];
+
+  const employee_number=
+    document.getElementById("employeeNumber")
+      .value.trim();
+
+  const password=
+    document.getElementById("password").value;
+
+  const button=document.getElementById("loginButton");
+  const message=document.getElementById("message");
+
+  button.disabled=true;
+  button.textContent=t.loading;
+  message.textContent="";
+
+  try{
+    const response=await fetch(LOGIN_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "apikey":SUPABASE_KEY
+      },
+      body:JSON.stringify({
+        employee_number,
+        password
+      })
+    });
+
+    const data=await response.json();
+
+    if(!response.ok || !data.access_token || !data.user){
+      message.textContent=data.error || t.error;
+      return;
+    }
+
+    // Store the session for the current browser tab only.
+    sessionStorage.setItem(
+      "tsk_water_session",
+      JSON.stringify({
+        access_token:data.access_token,
+        refresh_token:data.refresh_token,
+        expires_at:Date.now()+
+          (Number(data.expires_in)||3600)*1000,
+        user:data.user
+      })
+    );
+
+    document.getElementById("password").value="";
+    showUser(data.user);
+
+  }catch(error){
+    message.textContent=t.network;
+  }finally{
+    button.disabled=false;
+    button.textContent=t.button;
+  }
+});
+
+function logout(){
+  sessionStorage.removeItem("tsk_water_session");
+  currentUser=null;
+
+  document.getElementById("dashboard")
+    .classList.add("hidden");
+
+  document.getElementById("loginCard")
+    .classList.remove("hidden");
+
+  document.getElementById("employeeNumber").value="";
+  document.getElementById("password").value="";
+  document.getElementById("message").textContent="";
+}
+
+(function(){
+  try{
+    const saved=JSON.parse(
+      sessionStorage.getItem("tsk_water_session")
+    );
+
+    if(
+      saved &&
+      saved.expires_at>Date.now() &&
+      saved.user &&
+      saved.access_token
+    ){
+      showUser(saved.user);
+    }else{
+      sessionStorage.removeItem("tsk_water_session");
+    }
+  }catch{
+    sessionStorage.removeItem("tsk_water_session");
+  }
+})();
+</script>
+
+</body>
+</html>
