@@ -16,50 +16,225 @@
   --muted:#63766b;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--dark)}
-header{background:var(--dark);color:white;text-align:center;padding:20px 15px 28px;border-bottom:5px solid var(--orange)}
-.company-logo{display:block;width:170px;max-width:55vw;height:auto;margin:10px auto 15px;background:white;padding:8px;border-radius:16px;object-fit:contain}
-.brand{font-size:30px;font-weight:900;letter-spacing:1px}
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+header{
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:20px 15px 28px;
+  border-bottom:5px solid var(--orange);
+}
+.company-logo{
+  display:block;
+  width:170px;
+  max-width:55vw;
+  height:auto;
+  margin:10px auto 15px;
+  background:white;
+  padding:8px;
+  border-radius:16px;
+  object-fit:contain;
+}
+.brand{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:1px;
+}
 .brand .tsk{color:#27a977}
 .brand .active{color:var(--orange)}
-.tagline{margin:8px 0;color:#d9e7de;font-size:13px;letter-spacing:1px}
-.language-box{display:flex;justify-content:center;margin-bottom:15px}
-.language-box select{width:auto;min-width:150px}
-main{width:min(100%,720px);margin:24px auto;padding:0 15px}
-.card{background:white;border-radius:20px;padding:22px;margin-bottom:17px;box-shadow:0 8px 28px #0000000b}
+.tagline{
+  margin:8px 0;
+  color:#d9e7de;
+  font-size:13px;
+}
+.language-box{
+  display:flex;
+  justify-content:center;
+  margin-bottom:15px;
+}
+.language-box select{
+  width:auto;
+  min-width:150px;
+}
+main{
+  width:min(100%,720px);
+  margin:24px auto;
+  padding:0 15px;
+}
+.card{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:17px;
+  box-shadow:0 8px 28px #0000000b;
+}
 h2,h3{margin-top:0}
-label{display:block;margin:13px 0 6px;font-weight:bold;font-size:14px}
-input,select{width:100%;min-height:47px;padding:12px;border:1px solid #cad8cf;border-radius:11px;background:white;color:var(--dark);font-size:16px}
-button{border:none;border-radius:11px;background:var(--green);color:white;padding:14px;font-size:15px;font-weight:bold;cursor:pointer}
-button:disabled{opacity:.5;cursor:not-allowed}
+label{
+  display:block;
+  margin:13px 0 6px;
+  font-weight:bold;
+  font-size:14px;
+}
+input,select{
+  width:100%;
+  min-height:47px;
+  padding:12px;
+  border:1px solid #cad8cf;
+  border-radius:11px;
+  background:white;
+  color:var(--dark);
+  font-size:16px;
+}
+button{
+  border:0;
+  border-radius:11px;
+  background:var(--green);
+  color:white;
+  padding:14px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
 .full{width:100%;margin-top:15px}
 .orange{background:var(--orange);color:var(--dark)}
 .dark{background:var(--dark)}
 .light{background:#e8f5ec;color:var(--green)}
 .hidden{display:none!important}
-.tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:17px}
-.tabs button{min-height:49px;padding:10px 6px;font-size:13px}
-.tabs button.active{background:var(--orange);color:var(--dark)}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:13px 0}
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-bottom:17px;
+}
+.tabs button{
+  min-height:49px;
+  padding:10px 6px;
+  font-size:13px;
+}
+.tabs button.active{
+  background:var(--orange);
+  color:var(--dark);
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid var(--line);
+  padding:13px 0;
+}
 .row:last-child{border-bottom:0}
-.row strong{overflow-wrap:anywhere;text-align:end}
-.info{background:#f0f7f2;padding:15px;border-radius:12px;margin:13px 0;line-height:1.9}
-.message{background:#e9f7ee;color:#075b3b;padding:13px;border-radius:12px;margin-top:14px;line-height:1.8;overflow-wrap:anywhere}
-.message.error{background:#fff0ef;color:#ae271c}
-.message.warning{background:#fff3df;color:#855000}
-.badge{display:inline-block;padding:7px 13px;border-radius:30px;background:#e5f5eb;color:var(--green);font-weight:bold;font-size:13px}
-.stock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
-.stock-card{background:#eff8f2;border:1px solid #d7ebde;border-radius:13px;padding:15px 8px;text-align:center}
-.stock-card strong{display:block;font-size:25px;color:var(--green);margin-top:9px}
-.balance-number{color:var(--green);font-size:23px}
-.checkline{display:flex;align-items:center;gap:10px;margin-top:15px}
-.checkline input{width:22px;min-height:22px}
+.row strong{
+  overflow-wrap:anywhere;
+  text-align:end;
+}
+.info{
+  background:#f0f7f2;
+  padding:15px;
+  border-radius:12px;
+  margin:13px 0;
+  line-height:1.9;
+}
+.message{
+  background:#e9f7ee;
+  color:#075b3b;
+  padding:13px;
+  border-radius:12px;
+  margin-top:14px;
+  line-height:1.8;
+  overflow-wrap:anywhere;
+  white-space:pre-wrap;
+}
+.message.error{
+  background:#fff0ef;
+  color:#ae271c;
+}
+.message.warning{
+  background:#fff3df;
+  color:#855000;
+}
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:#e5f5eb;
+  color:var(--green);
+  font-weight:bold;
+  font-size:13px;
+}
+.stock-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:15px 0;
+}
+.stock-card{
+  background:#eff8f2;
+  border:1px solid #d7ebde;
+  border-radius:13px;
+  padding:15px 8px;
+  text-align:center;
+}
+.stock-card strong{
+  display:block;
+  font-size:25px;
+  color:var(--green);
+  margin-top:9px;
+}
+.balance-number{
+  color:var(--green);
+  font-size:23px;
+}
+.checkline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:15px;
+}
+.checkline input{
+  width:22px;
+  min-height:22px;
+  flex-shrink:0;
+}
 .checkline label{margin:0}
-.order-number{font-size:20px;font-weight:900;color:var(--green);direction:ltr;text-align:center}
-.pin-panel{border:2px solid #cde8d7;border-radius:15px;padding:16px;margin-top:18px;background:#f7fcf8}
+.order-number{
+  font-size:20px;
+  font-weight:900;
+  color:var(--green);
+  direction:ltr;
+  text-align:center;
+}
+.pin-panel{
+  border:2px solid #cde8d7;
+  background:#f7fcf8;
+  border-radius:16px;
+  padding:17px;
+  margin-top:20px;
+}
 .pin-panel h3{color:var(--green)}
-footer{text-align:center;color:#829187;font-size:12px;padding:25px}
-@media(max-width:450px){.stock-grid{grid-template-columns:1fr}}
+.pin-help{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+footer{
+  text-align:center;
+  color:#829187;
+  font-size:12px;
+  padding:25px;
+}
+@media(max-width:450px){
+  .stock-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
@@ -74,8 +249,12 @@ footer{text-align:center;color:#829187;font-size:12px;padding:25px}
     </select>
   </div>
 
-  <!-- الشعار الأصلي دون تعديل -->
-  <img src="tsk-logo.jpg" alt="TSK ACTIVE" class="company-logo">
+  <!-- الشعار الأصلي -->
+  <img
+    src="tsk-logo.jpg"
+    alt="TSK ACTIVE"
+    class="company-logo"
+  >
 
   <div class="brand">
     <span class="tsk">TSK</span>
@@ -83,848 +262,181 @@ footer{text-align:center;color:#829187;font-size:12px;padding:25px}
   </div>
 
   <div class="tagline">MEMBERSHIP & REWARDS</div>
-  <p data-i18n="subtitle">العضويات • الباقات • المحفظة • المكافآت</p>
+
+  <p data-i18n="subtitle">
+    العضويات • الباقات • المحفظة • المكافآت
+  </p>
 </header>
 
 <main>
 
+<!-- LOGIN -->
+
 <section id="loginPage" class="card">
   <h2 data-i18n="login">تسجيل دخول الموظفين</h2>
+
   <form id="loginForm">
-    <label data-i18n="employee">رقم الموظف</label>
-    <input id="employee" autocomplete="username" inputmode="numeric" required>
+    <label for="employee" data-i18n="employee">
+      رقم الموظف
+    </label>
+    <input
+      id="employee"
+      type="text"
+      autocomplete="username"
+      inputmode="numeric"
+      required
+    >
 
-    <label data-i18n="password">كلمة المرور</label>
-    <input id="password" type="password" autocomplete="current-password" required>
+    <label for="password" data-i18n="password">
+      كلمة المرور
+    </label>
+    <input
+      id="password"
+      type="password"
+      autocomplete="current-password"
+      required
+    >
 
-    <button id="loginBtn" class="full" type="submit" data-i18n="loginBtn">
+    <button
+      id="loginBtn"
+      class="full"
+      type="submit"
+      data-i18n="loginBtn"
+    >
       تسجيل الدخول
     </button>
   </form>
-  <div id="loginMessage"></div>
+
+  <div id="loginMessage" aria-live="polite"></div>
 </section>
 
+<!-- APP -->
+
 <section id="appPage" class="hidden">
+
+  <!-- STAFF INFORMATION -->
 
   <div class="card">
     <div class="row">
       <strong data-i18n="dashboard">لوحة الموظف</strong>
       <span id="roleText" class="badge"></span>
     </div>
+
     <div class="row">
       <span data-i18n="employee">رقم الموظف</span>
       <strong id="employeeText"></strong>
     </div>
+
     <div class="row">
       <span data-i18n="branch">الفرع</span>
       <strong id="branchText"></strong>
     </div>
-    <button id="logoutBtn" class="full dark" data-i18n="logout">
+
+    <button
+      id="logoutBtn"
+      class="full dark"
+      type="button"
+      data-i18n="logout"
+    >
       تسجيل الخروج
     </button>
   </div>
 
+  <!-- NAVIGATION -->
+
   <div class="tabs">
-    <button data-tab="search" data-i18n="search">بحث عن عضو</button>
-    <button data-tab="register" data-i18n="register">عضو جديد</button>
-    <button data-tab="sale" data-i18n="sale">بيع باقة</button>
-    <button data-tab="redeem" data-i18n="redeem">صرف منتج</button>
-    <button data-tab="wallet" data-i18n="wallet">المحفظة</button>
-    <button data-tab="overview" data-i18n="reports">التقارير</button>
-    <button data-tab="orders" class="orange" data-i18n="orders">📦 الطلبات الإلكترونية</button>
-    <button id="stockTabButton" class="hidden" data-tab="stock" data-i18n="stock">
+
+    <button type="button" data-tab="search" data-i18n="search">
+      بحث عن عضو
+    </button>
+
+    <button type="button" data-tab="register" data-i18n="register">
+      عضو جديد
+    </button>
+
+    <button type="button" data-tab="sale" data-i18n="sale">
+      بيع باقة
+    </button>
+
+    <button type="button" data-tab="redeem" data-i18n="redeem">
+      صرف منتج
+    </button>
+
+    <button type="button" data-tab="wallet" data-i18n="wallet">
+      المحفظة
+    </button>
+
+    <button type="button" data-tab="overview" data-i18n="reports">
+      التقارير
+    </button>
+
+    <button
+      type="button"
+      data-tab="orders"
+      class="orange"
+      data-i18n="orders"
+    >
+      📦 الطلبات الإلكترونية
+    </button>
+
+    <button
+      type="button"
+      id="stockTabButton"
+      class="hidden"
+      data-tab="stock"
+      data-i18n="stock"
+    >
       مخزون مياه نوفا
     </button>
+
   </div>
 
-  <!-- البحث عن المشترك -->
+  <!-- MEMBER SEARCH -->
 
   <section id="tab-search" class="card">
     <h3 data-i18n="search">بحث عن عضو</h3>
 
-    <input id="searchQuery" placeholder="TSK-000001 / 05xxxxxxxx">
+    <input
+      id="searchQuery"
+      placeholder="TSK-000001 / 05xxxxxxxx"
+      autocomplete="off"
+    >
 
-    <button id="searchBtn" class="full" data-i18n="searchBtn">
+    <button
+      id="searchBtn"
+      class="full"
+      type="button"
+      data-i18n="searchBtn"
+    >
       بحث
     </button>
 
     <div id="memberResult"></div>
 
-    <!-- تفعيل رمز دخول المشترك -->
+    <!-- MEMBER PIN -->
+
     <div id="memberPinPanel" class="pin-panel hidden">
 
-      <h3 data-i18n="pinTitle">🔐 تفعيل / تغيير رمز دخول المشترك</h3>
+      <h3 data-i18n="pinTitle">
+        🔐 تفعيل / تغيير رمز دخول المشترك
+      </h3>
 
       <div class="info">
         <span data-i18n="selectedMember">العميل المحدد</span>:
         <strong id="pinMemberName">—</strong>
       </div>
 
-      <p data-i18n="pinHelp">
-        يجب التحقق من هوية صاحب العضوية قبل تفعيل أو تغيير رمز الدخول.
+      <p class="pin-help" data-i18n="pinHelp">
+        يجب التحقق من هوية صاحب العضوية قبل تعيين
+        رمز الدخول أو تغييره.
       </p>
 
-      <label data-i18n="pinLabel">رمز PIN جديد (4–6 أرقام)</label>
+      <label for="memberPin" data-i18n="pinLabel">
+        رمز PIN جديد (4 إلى 6 أرقام)
+      </label>
+
       <input
         id="memberPin"
         type="password"
         inputmode="numeric"
-        autocomplete="new-password"
-        maxlength="6"
-        placeholder="••••••">
-
-      <label data-i18n="pinConfirm">تأكيد رمز PIN</label>
-      <input
-        id="memberPinConfirm"
-        type="password"
-        inputmode="numeric"
-        autocomplete="new-password"
-        maxlength="6"
-        placeholder="••••••">
-
-      <div class="checkline">
-        <input id="pinIdentityConfirmed" type="checkbox">
-        <label for="pinIdentityConfirmed" data-i18n="pinIdentity">
-          أؤكد أنني تحققت من هوية صاحب العضوية
-        </label>
-      </div>
-
-      <button
-        id="pinSaveBtn"
-        class="full orange"
-        type="button"
-        data-i18n="pinSave">
-        🔐 حفظ رمز الدخول
-      </button>
-
-      <div id="pinResult"></div>
-    </div>
-  </section>
-
-  <!-- تسجيل عضو جديد -->
-
-  <section id="tab-register" class="card hidden">
-    <h3 data-i18n="register">عضو جديد</h3>
-
-    <label data-i18n="name">اسم العميل</label>
-    <input id="newName">
-
-    <label data-i18n="phone">رقم الجوال</label>
-    <input id="newPhone" inputmode="tel">
-
-    <button id="registerBtn" class="full" data-i18n="createMember">
-      إنشاء العضوية
-    </button>
-
-    <div id="registerResult"></div>
-  </section>
-
-  <!-- بيع الباقات -->
-
-  <section id="tab-sale" class="card hidden">
-    <h3 data-i18n="sale">بيع باقة</h3>
-
-    <div class="info">
-      <span data-i18n="selectedMember">العميل المحدد</span>:
-      <strong class="selectedName">—</strong>
-    </div>
-
-    <label data-i18n="package">الباقة</label>
-    <select id="catalogSelect"></select>
-
-    <div class="info">
-      <span data-i18n="price">السعر</span>:
-      <strong id="selectedPrice">—</strong>
-    </div>
-
-    <label data-i18n="payment">طريقة الدفع</label>
-    <select id="paymentMethod">
-      <option value="cash" data-i18n="cash">نقدًا</option>
-      <option value="pos" data-i18n="pos">نقاط البيع</option>
-    </select>
-
-    <div class="checkline">
-      <input id="paymentConfirmed" type="checkbox">
-      <label data-i18n="confirmPayment">أؤكد استلام المبلغ فعليًا</label>
-    </div>
-
-    <button id="purchaseBtn" class="full orange" data-i18n="confirmSale">
-      تأكيد البيع
-    </button>
-
-    <div id="saleResult"></div>
-  </section>
-
-  <!-- صرف المنتجات -->
-
-  <section id="tab-redeem" class="card hidden">
-    <h3 data-i18n="redeem">صرف منتج</h3>
-
-    <div class="info">
-      <span data-i18n="selectedMember">العميل المحدد</span>:
-      <strong class="selectedName">—</strong>
-    </div>
-
-    <label data-i18n="product">المنتج</label>
-    <select id="redeemKind">
-      <option value="protein" data-i18n="protein">بروتين شيك</option>
-      <option value="bowl" data-i18n="bowl">هيلثي بول</option>
-      <option value="smoothie" data-i18n="smoothie">سموذي</option>
-      <option value="water" data-i18n="water">مياه نوفا</option>
-    </select>
-
-    <label data-i18n="redeemQuantity">الكمية المطلوبة</label>
-    <input id="redeemQuantity" type="number" min="1" max="100000" step="1" value="1">
-
-    <div class="info">
-      <span data-i18n="availableBalance">رصيد الاشتراك المتاح</span>:
-      <strong id="redeemAvailable" class="balance-number">—</strong>
-    </div>
-
-    <div class="message warning" data-i18n="redeemWarning">
-      سيتم خصم الكمية المطلوبة من رصيد المشترك بعد التأكيد.
-    </div>
-
-    <button id="redeemBtn" class="full" data-i18n="confirmRedeem">
-      تأكيد الصرف
-    </button>
-
-    <div id="redeemResult"></div>
-
-    <button id="upgradeBtn" class="full orange hidden" type="button" data-i18n="upgrade">
-      رقِّ اشتراكك
-    </button>
-  </section>
-
-  <!-- المحفظة -->
-
-  <section id="tab-wallet" class="card hidden">
-    <h3 data-i18n="wallet">المحفظة</h3>
-
-    <div class="info">
-      <span data-i18n="selectedMember">العميل المحدد</span>:
-      <strong class="selectedName">—</strong>
-    </div>
-
-    <div class="row">
-      <span data-i18n="walletBalance">رصيد المحفظة</span>
-      <strong id="walletBalance">—</strong>
-    </div>
-
-    <div class="row">
-      <span data-i18n="rewards">رصيد المكافآت</span>
-      <strong id="promoBalance">—</strong>
-    </div>
-  </section>
-
-  <!-- التقارير -->
-
-  <section id="tab-overview" class="card hidden">
-    <h3 data-i18n="reports">التقارير</h3>
-    <div id="overviewResult"></div>
-
-    <button id="refreshBtn" class="full light" data-i18n="refresh">
-      تحديث البيانات
-    </button>
-  </section>
-
-  <!-- الطلبات الإلكترونية -->
-
-  <section id="tab-orders" class="card hidden">
-    <h3 data-i18n="orders">📦 الطلبات الإلكترونية</h3>
-
-    <div class="info">
-      <strong data-i18n="ordersHelp">
-        ابحث عن الطلب برقم الطلب أو امسح رمز QR.
-      </strong>
-      <p style="margin-bottom:0;font-size:13px;color:var(--muted)">
-        يمكن استخدام قارئ الباركود لإدخال رقم الطلب.
-      </p>
-    </div>
-
-    <label data-i18n="orderNumber">رقم الطلب</label>
-    <input id="orderNumber" autocomplete="off" placeholder="TSK-ORD-000001">
-
-    <button id="orderSearchBtn" class="full orange" type="button" data-i18n="orderSearch">
-      🔍 البحث عن الطلب
-    </button>
-
-    <div id="orderResult"></div>
-
-    <div class="message warning" data-i18n="orderReadOnly">
-      عرض الطلب لا يعني تأكيد الدفع أو التسليم.
-      لن يتم خصم أي رصيد من هذه الشاشة حاليًا.
-    </div>
-  </section>
-
-  <!-- مخزون مياه نوفا -->
-
-  <section id="tab-stock" class="card hidden">
-    <h3 data-i18n="stock">مخزون مياه نوفا</h3>
-
-    <div class="message warning" data-i18n="stockAdmin">
-      إضافة المخزون متاحة للإدارة فقط.
-    </div>
-
-    <div id="stockOverview" class="stock-grid"></div>
-
-    <label data-i18n="selectBranch">اختيار الفرع</label>
-    <select id="stockBranch">
-      <option value="1" data-i18n="safwa">الصفوة</option>
-      <option value="2" data-i18n="majmaah">المجمعة</option>
-      <option value="3" data-i18n="muzahimiyah">المزاحمية</option>
-    </select>
-
-    <label data-i18n="quantity">عدد العبوات المستلمة</label>
-    <input id="stockUnits" type="number" min="1" max="100000" step="1">
-
-    <button id="stockReceiveBtn" class="full" data-i18n="addStock">
-      إضافة المخزون
-    </button>
-
-    <div id="stockResult"></div>
-
-    <button id="stockRefreshBtn" class="full light" data-i18n="refresh">
-      تحديث البيانات
-    </button>
-  </section>
-
-</section>
-</main>
-
-<footer>© TSK ACTIVE — MEMBERSHIP SYSTEM</footer>
-
-<script>
-"use strict";
-
-/* SUPABASE */
-
-const URL_BASE="https://qitrsjlkshhuvrtbswll.supabase.co";
-const API_KEY="sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6";
-const LOGIN_URL=URL_BASE+"/functions/v1/tsk-employee-login";
-const STORAGE_KEY="tsk_active_membership_session";
-
-const BRANCHES={
-  1:"الصفوة",
-  2:"المجمعة",
-  3:"المزاحمية"
-};
-
-const PRODUCT_NAMES={
-  protein:"بروتين شيك",
-  bowl:"هيلثي بول",
-  smoothie:"سموذي",
-  water:"مياه نوفا"
-};
-
-/* TRANSLATIONS */
-
-const translations={
-  ar:{
-    subtitle:"العضويات • الباقات • المحفظة • المكافآت",
-    login:"تسجيل دخول الموظفين",
-    employee:"رقم الموظف",
-    password:"كلمة المرور",
-    loginBtn:"تسجيل الدخول",
-    dashboard:"لوحة الموظف",
-    branch:"الفرع",
-    logout:"تسجيل الخروج",
-    search:"بحث عن عضو",
-    register:"عضو جديد",
-    sale:"بيع باقة",
-    redeem:"صرف منتج",
-    wallet:"المحفظة",
-    reports:"التقارير",
-    stock:"مخزون مياه نوفا",
-    searchBtn:"بحث",
-    name:"اسم العميل",
-    phone:"رقم الجوال",
-    createMember:"إنشاء العضوية",
-    selectedMember:"العميل المحدد",
-    package:"الباقة",
-    price:"السعر",
-    payment:"طريقة الدفع",
-    cash:"نقدًا",
-    pos:"نقاط البيع",
-    confirmPayment:"أؤكد استلام المبلغ فعليًا",
-    confirmSale:"تأكيد البيع",
-    product:"المنتج",
-    protein:"بروتين شيك",
-    bowl:"هيلثي بول",
-    smoothie:"سموذي",
-    water:"مياه نوفا",
-    redeemQuantity:"الكمية المطلوبة",
-    availableBalance:"رصيد الاشتراك المتاح",
-    redeemWarning:"سيتم خصم الكمية المطلوبة من رصيد المشترك بعد التأكيد.",
-    confirmRedeem:"تأكيد الصرف",
-    upgrade:"رقِّ اشتراكك",
-    walletBalance:"رصيد المحفظة",
-    rewards:"رصيد المكافآت",
-    refresh:"تحديث البيانات",
-    stockAdmin:"إضافة المخزون متاحة للإدارة فقط.",
-    selectBranch:"اختيار الفرع",
-    safwa:"الصفوة",
-    majmaah:"المجمعة",
-    muzahimiyah:"المزاحمية",
-    quantity:"عدد العبوات المستلمة",
-    addStock:"إضافة المخزون",
-    orders:"📦 الطلبات الإلكترونية",
-    ordersHelp:"ابحث عن الطلب برقم الطلب أو امسح رمز QR.",
-    orderNumber:"رقم الطلب",
-    orderSearch:"🔍 البحث عن الطلب",
-    orderReadOnly:"عرض الطلب لا يعني تأكيد الدفع أو التسليم. لن يتم خصم أي رصيد من هذه الشاشة حاليًا.",
-    pinTitle:"🔐 تفعيل / تغيير رمز دخول المشترك",
-    pinHelp:"تحققي من هوية صاحب العضوية قبل تعيين أو تغيير الرمز.",
-    pinLabel:"رمز PIN جديد (4–6 أرقام)",
-    pinConfirm:"تأكيد رمز PIN",
-    pinIdentity:"أؤكد أنني تحققت من هوية صاحب العضوية",
-    pinSave:"🔐 حفظ رمز الدخول"
-  },
-  en:{
-    subtitle:"Memberships • Packages • Wallet • Rewards",
-    login:"Employee Login",
-    employee:"Employee Number",
-    password:"Password",
-    loginBtn:"Sign In",
-    dashboard:"Employee Dashboard",
-    branch:"Branch",
-    logout:"Log Out",
-    search:"Find Member",
-    register:"New Member",
-    sale:"Sell Package",
-    redeem:"Redeem Product",
-    wallet:"Wallet",
-    reports:"Reports",
-    stock:"Nova Water Inventory",
-    searchBtn:"Search",
-    name:"Customer Name",
-    phone:"Mobile Number",
-    createMember:"Create Membership",
-    selectedMember:"Selected Member",
-    package:"Package",
-    price:"Price",
-    payment:"Payment Method",
-    cash:"Cash",
-    pos:"Card / POS",
-    confirmPayment:"I confirm payment was received",
-    confirmSale:"Confirm Sale",
-    product:"Product",
-    protein:"Protein Shake",
-    bowl:"Healthy Bowl",
-    smoothie:"Smoothie",
-    water:"Nova Water",
-    redeemQuantity:"Requested Quantity",
-    availableBalance:"Available Package Balance",
-    redeemWarning:"The requested quantity will be deducted after confirmation.",
-    confirmRedeem:"Confirm Redemption",
-    upgrade:"Upgrade Membership",
-    walletBalance:"Wallet Balance",
-    rewards:"Rewards Balance",
-    refresh:"Refresh",
-    stockAdmin:"Only administrators can receive inventory.",
-    selectBranch:"Select Branch",
-    safwa:"Al Safwa",
-    majmaah:"Al Majmaah",
-    muzahimiyah:"Al Muzahimiyah",
-    quantity:"Quantity Received",
-    addStock:"Add Inventory",
-    orders:"📦 Electronic Orders",
-    ordersHelp:"Search by order number or scan a QR code.",
-    orderNumber:"Order Number",
-    orderSearch:"🔍 Find Order",
-    orderReadOnly:"Viewing an order does not confirm payment or delivery. No balance is deducted here.",
-    pinTitle:"🔐 Activate / Change Member PIN",
-    pinHelp:"Verify the member's identity before setting or changing the PIN.",
-    pinLabel:"New PIN (4–6 digits)",
-    pinConfirm:"Confirm PIN",
-    pinIdentity:"I have verified the member's identity",
-    pinSave:"🔐 Save PIN"
-  },
-  bn:{
-    subtitle:"সদস্যপদ • প্যাকেজ • ওয়ালেট • পুরস্কার",
-    login:"কর্মচারী লগইন",
-    employee:"কর্মচারী নম্বর",
-    password:"পাসওয়ার্ড",
-    loginBtn:"লগইন",
-    dashboard:"কর্মচারী ড্যাশবোর্ড",
-    branch:"শাখা",
-    logout:"লগআউট",
-    search:"সদস্য খুঁজুন",
-    register:"নতুন সদস্য",
-    sale:"প্যাকেজ বিক্রি",
-    redeem:"পণ্য প্রদান",
-    wallet:"ওয়ালেট",
-    reports:"রিপোর্ট",
-    stock:"নোভা পানির স্টক",
-    searchBtn:"অনুসন্ধান",
-    name:"গ্রাহকের নাম",
-    phone:"মোবাইল নম্বর",
-    createMember:"সদস্য তৈরি করুন",
-    selectedMember:"নির্বাচিত সদস্য",
-    package:"প্যাকেজ",
-    price:"মূল্য",
-    payment:"পেমেন্ট পদ্ধতি",
-    cash:"নগদ",
-    pos:"কার্ড / POS",
-    confirmPayment:"আমি পেমেন্ট গ্রহণ করেছি",
-    confirmSale:"বিক্রি নিশ্চিত করুন",
-    product:"পণ্য",
-    protein:"প্রোটিন শেক",
-    bowl:"হেলদি বোল",
-    smoothie:"স্মুদি",
-    water:"নোভা পানি",
-    redeemQuantity:"প্রয়োজনীয় পরিমাণ",
-    availableBalance:"অবশিষ্ট প্যাকেজ",
-    redeemWarning:"নিশ্চিত করলে অনুরোধ করা পরিমাণ কাটা হবে।",
-    confirmRedeem:"প্রদান নিশ্চিত করুন",
-    upgrade:"সদস্যপদ আপগ্রেড করুন",
-    walletBalance:"ওয়ালেট ব্যালেন্স",
-    rewards:"পুরস্কার ব্যালেন্স",
-    refresh:"রিফ্রেশ",
-    stockAdmin:"শুধুমাত্র অ্যাডমিন স্টক যোগ করতে পারবেন।",
-    selectBranch:"শাখা নির্বাচন করুন",
-    safwa:"আল সাফওয়া",
-    majmaah:"আল মাজমাআহ",
-    muzahimiyah:"আল মুজাহিমিয়াহ",
-    quantity:"প্রাপ্ত বোতলের সংখ্যা",
-    addStock:"স্টক যোগ করুন",
-    orders:"📦 অনলাইন অর্ডার",
-    ordersHelp:"অর্ডার নম্বর দিয়ে খুঁজুন অথবা QR স্ক্যান করুন।",
-    orderNumber:"অর্ডার নম্বর",
-    orderSearch:"🔍 অর্ডার খুঁজুন",
-    orderReadOnly:"অর্ডার দেখা মানে পেমেন্ট বা ডেলিভারি নিশ্চিত নয়।",
-    pinTitle:"🔐 সদস্য PIN সেট / পরিবর্তন",
-    pinHelp:"PIN সেট করার আগে সদস্যের পরিচয় যাচাই করুন।",
-    pinLabel:"নতুন PIN (৪–৬ সংখ্যা)",
-    pinConfirm:"PIN নিশ্চিত করুন",
-    pinIdentity:"আমি সদস্যের পরিচয় যাচাই করেছি",
-    pinSave:"🔐 PIN সংরক্ষণ করুন"
-  }
-};
-
-/* STATE */
-
-let session=null;
-let staff=null;
-let selectedMember=null;
-let catalog=[];
-let busy=false;
-let redeemBusy=false;
-let pinBusy=false;
-let availableBalance=null;
-let balanceRequestVersion=0;
-
-const $=id=>document.getElementById(id);
-
-/* LANGUAGE */
-
-function t(key){
-  const lang=$("languageSelect").value;
-  return translations[lang]?.[key]||translations.ar[key]||key;
-}
-
-function branchName(id){
-  const lang=$("languageSelect").value;
-  const names={
-    ar:{1:"الصفوة",2:"المجمعة",3:"المزاحمية"},
-    en:{1:"Al Safwa",2:"Al Majmaah",3:"Al Muzahimiyah"},
-    bn:{1:"আল সাফওয়া",2:"আল মাজমাআহ",3:"আল মুজাহিমিয়াহ"}
-  };
-  return names[lang]?.[id]||BRANCHES[id]||"—";
-}
-
-function applyLanguage(){
-  const lang=$("languageSelect").value;
-  localStorage.setItem("tsk_language",lang);
-  document.documentElement.lang=lang;
-  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
-
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    el.textContent=t(el.dataset.i18n);
-  });
-
-  if(staff){
-    $("roleText").textContent=
-      staff.role==="admin"
-        ?(lang==="ar"?"الإدارة":lang==="en"?"Admin":"অ্যাডমিন")
-        :(lang==="ar"?"الكاشير":lang==="en"?"Cashier":"ক্যাশিয়ার");
-
-    $("branchText").textContent=
-      staff.role==="admin"
-        ?(lang==="ar"?"جميع الفروع":lang==="en"?"All Branches":"সব শাখা")
-        :branchName(staff.branch_id);
-  }
-}
-
-/* HELPERS */
-
-function escapeHTML(value){
-  return String(value??"").replace(
-    /[&<>"']/g,
-    c=>({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#39;"
-    })[c]
-  );
-}
-
-function money(value){
-  return Number(value||0).toFixed(2)+" SAR";
-}
-
-function notice(id,message,error=false){
-  $(id).innerHTML=
-    '<div class="message '+(error?"error":"")+'">'+
-    escapeHTML(message)+
-    "</div>";
-}
-
-function clearNotice(id){
-  $(id).innerHTML="";
-}
-
-function saveSession(){
-  sessionStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({session,staff})
-  );
-}
-
-/* AUTH */
-
-function resetPinPanel(){
-  $("memberPinPanel").classList.add("hidden");
-  $("memberPin").value="";
-  $("memberPinConfirm").value="";
-  $("pinIdentityConfirmed").checked=false;
-  $("pinMemberName").textContent="—";
-  clearNotice("pinResult");
-}
-
-function logout(message=""){
-  sessionStorage.removeItem(STORAGE_KEY);
-  session=null;
-  staff=null;
-  catalog=[];
-  selectedMember=null;
-  availableBalance=null;
-  balanceRequestVersion++;
-
-  resetPinPanel();
-
-  $("appPage").classList.add("hidden");
-  $("loginPage").classList.remove("hidden");
-  $("password").value="";
-
-  if(message)notice("loginMessage",message,true);
-}
-
-async function login(){
-  if(busy)return;
-
-  const employee_number=$("employee").value.trim();
-  const password=$("password").value;
-
-  if(!employee_number||!password){
-    notice("loginMessage","أدخل رقم الموظف وكلمة المرور",true);
-    return;
-  }
-
-  busy=true;
-  $("loginBtn").disabled=true;
-  clearNotice("loginMessage");
-
-  try{
-    const response=await fetch(LOGIN_URL,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "apikey":API_KEY
-      },
-      body:JSON.stringify({employee_number,password})
-    });
-
-    const data=await response.json();
-
-    if(!response.ok||!data.access_token||!data.user){
-      throw new Error(data.error||"Login failed");
-    }
-
-    session={
-      access_token:data.access_token,
-      refresh_token:data.refresh_token,
-      expires_at:Date.now()+Number(data.expires_in||3600)*1000
-    };
-
-    staff=data.user;
-    saveSession();
-    $("password").value="";
-    await showApp();
-
-  }catch(error){
-    notice("loginMessage",error.message,true);
-  }finally{
-    busy=false;
-    $("loginBtn").disabled=false;
-  }
-}
-
-async function refreshAccessToken(){
-  if(!session?.refresh_token){
-    throw new Error("Session expired");
-  }
-
-  const response=await fetch(
-    URL_BASE+"/auth/v1/token?grant_type=refresh_token",
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "apikey":API_KEY
-      },
-      body:JSON.stringify({
-        refresh_token:session.refresh_token
-      })
-    }
-  );
-
-  const data=await response.json();
-
-  if(!response.ok||!data.access_token){
-    logout("Session expired");
-    throw new Error("Session expired");
-  }
-
-  session={
-    access_token:data.access_token,
-    refresh_token:data.refresh_token||session.refresh_token,
-    expires_at:Date.now()+Number(data.expires_in||3600)*1000
-  };
-
-  saveSession();
-}
-
-/* RPC */
-
-async function rpc(name,params={}){
-  if(!session?.access_token){
-    throw new Error("Login required");
-  }
-
-  if(Date.now()>session.expires_at-60000){
-    await refreshAccessToken();
-  }
-
-  const response=await fetch(
-    URL_BASE+"/rest/v1/rpc/"+name,
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "apikey":API_KEY,
-        "Authorization":"Bearer "+session.access_token
-      },
-      body:JSON.stringify(params)
-    }
-  );
-
-  const data=await response.json().catch(()=>null);
-
-  if(!response.ok){
-    throw new Error(
-      data?.message||data?.error||"Operation failed"
-    );
-  }
-
-  return data;
-}
-
-function branchId(){
-  if(!staff)throw new Error("Login required");
-
-  if(staff.role!=="cashier"){
-    throw new Error("استخدمي حساب الكاشير لعمليات الفرع");
-  }
-
-  const id=Number(staff.branch_id);
-
-  if(!Number.isInteger(id)||id<1){
-    throw new Error("Invalid employee branch");
-  }
-
-  return id;
-}
-
-/* DASHBOARD */
-
-async function showApp(){
-  $("loginPage").classList.add("hidden");
-  $("appPage").classList.remove("hidden");
-
-  $("employeeText").textContent=
-    staff.employee_number||"—";
-
-  $("stockTabButton").classList.toggle(
-    "hidden",
-    staff.role!=="admin"
-  );
-
-  applyLanguage();
-  openTab("search");
-  await loadOverview();
-}
-
-function openTab(name){
-  if(name==="stock"&&staff?.role!=="admin")return;
-
-  document.querySelectorAll('[id^="tab-"]').forEach(el=>{
-    el.classList.add("hidden");
-  });
-
-  $("tab-"+name)?.classList.remove("hidden");
-
-  document.querySelectorAll("[data-tab]").forEach(button=>{
-    button.classList.toggle(
-      "active",
-      button.dataset.tab===name
-    );
-  });
-
-  if(name==="overview")loadOverview();
-  if(name==="stock")loadStock();
-  if(name==="redeem")refreshBalance();
-}
-
-/* MEMBER */
-
-function selectMember(member,data){
-  selectedMember=member;
-  availableBalance=null;
-  balanceRequestVersion++;
-
-  document.querySelectorAll(".selectedName").forEach(el=>{
-    el.textContent=
-      member.full_name+" — "+member.member_no;
-  });
-
-  $("walletBalance").textContent=
-    money(data?.wallet?.balance);
-
-  $("promoBalance").textContent=
-    money(data?.wallet?.promo_balance);
-
-  $("redeemAvailable").textContent="—";
-  $("upgradeBtn").classList.add("hidden");
-  clearNotice("redeemResult");
-
-  resetPinPanel();
-
-  $("pinMemberName").textContent=
-    member.full_name+" — "+member.member_no;
-
-  $("memberPinPanel").classList.remove("hidden");
-
-  if(!$("
+        autocomplete
