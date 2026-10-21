@@ -1,71 +1,65 @@
-CREATE OR REPLACE FUNCTION public.tsk_cashier_order_lookup(
-    p_order_no TEXT
-)
-RETURNS JSONB
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path = ''
-AS $$
-DECLARE
-    v_branch BIGINT;
-    v_order public.tsk_orders%ROWTYPE;
-    v_member public.tsk_members%ROWTYPE;
-BEGIN
-    -- Verify staff identity
-    v_branch := public.tsk_scope();
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الكاشير | TSK ACTIVE</title>
 
-    IF p_order_no IS NULL
-       OR length(trim(p_order_no)) < 5 THEN
-        RAISE EXCEPTION 'رقم الطلب غير صحيح';
-    END IF;
+  <meta http-equiv="refresh" content="2;url=index.html">
 
-    SELECT *
-    INTO v_order
-    FROM public.tsk_orders
-    WHERE order_no = trim(p_order_no);
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #071c17;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-    IF NOT FOUND THEN
-        RETURN jsonb_build_object(
-            'success', false,
-            'message', 'الطلب غير موجود'
-        );
-    END IF;
+    .card {
+      padding: 35px;
+      width: 90%;
+      max-width: 380px;
+      border-radius: 22px;
+      background: #10352a;
+    }
 
-    -- Cashier sees orders for assigned branch only
-    IF v_branch IS NOT NULL
-       AND v_order.pickup_branch_id <> v_branch THEN
-        RAISE EXCEPTION 'هذا الطلب يخص فرعاً آخر';
-    END IF;
+    img {
+      max-width: 140px;
+      margin-bottom: 20px;
+    }
 
-    SELECT *
-    INTO v_member
-    FROM public.tsk_members
-    WHERE id = v_order.member_id;
+    h1 {
+      color: #ff942e;
+    }
 
-    RETURN jsonb_build_object(
-        'success', true,
-        'order_no', v_order.order_no,
-        'order_type', v_order.order_type,
-        'member_name', v_member.full_name,
-        'member_no', v_member.member_no,
-        'product', COALESCE(
-            v_order.product_name,
-            v_order.product_kind,
-            v_order.catalog_code
-        ),
-        'quantity', v_order.quantity,
-        'pickup_branch', v_order.pickup_branch_id,
-        'payment_method', v_order.payment_method,
-        'payment_status', v_order.payment_status,
-        'order_status', v_order.order_status,
-        'total_amount', v_order.total_amount,
-        'created_at', v_order.created_at
-    );
-END;
-$$;
+    a {
+      display: block;
+      background: #15966a;
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
 
-REVOKE ALL ON FUNCTION public.tsk_cashier_order_lookup(TEXT)
-FROM PUBLIC, anon, authenticated;
+<body>
+  <div class="card">
+    <img src="tsk-logo.jpg" alt="TSK ACTIVE">
 
-GRANT EXECUTE ON FUNCTION public.tsk_cashier_order_lookup(TEXT)
-TO authenticated;
+    <h1>TSK ACTIVE</h1>
+    <h2>بوابة الكاشير</h2>
+
+    <p>جارٍ فتح نظام الكاشير...</p>
+
+    <a href="index.html">الدخول إلى النظام</a>
+  </div>
+</body>
+</html>
