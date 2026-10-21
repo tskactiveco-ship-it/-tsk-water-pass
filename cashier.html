@@ -1,1 +1,71 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>الكاشير | TSK WATER PASS</title><style>:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#142d4a;background:#f2f7fd}*{box-sizing:border-box}body{margin:0}.shell{max-width:960px;margin:auto;padding:24px 16px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #dbe6f2}.brand{font-weight:900;color:#0754a2;letter-spacing:.4px;font-size:22px}.tag{font-size:12px;background:#e3f0ff;color:#135fa7;padding:8px 11px;border-radius:30px}h1{font-size:clamp(25px,5vw,37px);margin:30px 0 10px}p{color:#5d7085;line-height:1.7}.card{background:white;border:1px solid #dfebf5;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 8px 28px #113f7209}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.stat{background:#f4f9ff;padding:18px;border-radius:14px}.stat strong{font-size:26px;color:#0a63b8;display:block}.muted{color:#667d94;font-size:13px}.bottles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}.bottle{height:65px;border:2px solid #c8d9e9;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#7690a8}.bottle.used{background:#0874d1;border-color:#0874d1;color:#fff;font-size:26px}label{font-size:14px;font-weight:700;display:block;margin:14px 0 7px}input,select{width:100%;border:1px solid #cadbea;border-radius:12px;padding:14px;font:inherit;font-size:16px;background:#fff}button{background:#076bc0;color:white;border:0;border-radius:12px;padding:14px 20px;font:inherit;font-weight:700;cursor:pointer;min-height:48px;margin-top:16px}button:disabled{background:#9fb7cc;cursor:not-allowed}.notice{border-right:4px solid #0b77c9;background:#eaf5ff;border-radius:10px;padding:14px 16px;font-size:14px;color:#27537d}.row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.links a{color:#0a65b2;text-decoration:none;margin-inline-start:14px;font-size:13px}footer{margin-top:40px;text-align:center;color:#71879c;font-size:12px}@media(max-width:400px){.bottles{gap:6px}.bottle{height:52px}.card{padding:17px}.brand{font-size:18px}}</style></head><body><div class="shell"><header><span class="brand">💧 TSK WATER PASS</span><span class="tag">واجهة الكاشير</span></header><h1>بوابة الكاشير</h1><p>تسجيل العملاء وتفعيل الاشتراكات وصرف المياه والتجديد — بعد إكمال ربط المصادقة والاختبارات.</p><div class="card"><h2>تسجيل دخول الموظف</h2><label for="username">اسم المستخدم</label><input id="username" value="cashier01" autocomplete="username"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" placeholder="كلمة مرور الموظف"><button disabled title="لم يكتمل ربط تسجيل الدخول الآمن">تسجيل الدخول — قريبًا</button><p class="muted">لن نرسل بيانات الدخول إلى أي خادم في هذه النسخة. ربط اسم المستخدم بحساب Supabase لم يُنفذ بعد.</p></div><div class="grid"><div class="card"><h3>إضافة عميل</h3><p>الاسم، الجوال، والفرع</p></div><div class="card"><h3>تفعيل اشتراك</h3><p>20 ريالًا · 10 عبوات · 30 يومًا</p></div><div class="card"><h3>صرف عبوة</h3><p>تحديث رصيد العميل مرة واحدة لكل عملية</p></div><div class="card"><h3>تجديد اشتراك</h3><p>20 ريالًا و10 عبوات جديدة</p></div></div><div class="notice">هذه صفحة مستقلة للعرض فقط؛ الأزرار المالية والصرف معطّلة إلى حين اختبار صلاحيات Supabase وإكمال الربط.</div><footer>TSK ACTIVE © 2026 · نسخة واجهة تجريبية — غير متصلة بقاعدة البيانات</footer></div></body></html>
+CREATE OR REPLACE FUNCTION public.tsk_cashier_order_lookup(
+    p_order_no TEXT
+)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+DECLARE
+    v_branch BIGINT;
+    v_order public.tsk_orders%ROWTYPE;
+    v_member public.tsk_members%ROWTYPE;
+BEGIN
+    -- Verify staff identity
+    v_branch := public.tsk_scope();
+
+    IF p_order_no IS NULL
+       OR length(trim(p_order_no)) < 5 THEN
+        RAISE EXCEPTION 'رقم الطلب غير صحيح';
+    END IF;
+
+    SELECT *
+    INTO v_order
+    FROM public.tsk_orders
+    WHERE order_no = trim(p_order_no);
+
+    IF NOT FOUND THEN
+        RETURN jsonb_build_object(
+            'success', false,
+            'message', 'الطلب غير موجود'
+        );
+    END IF;
+
+    -- Cashier sees orders for assigned branch only
+    IF v_branch IS NOT NULL
+       AND v_order.pickup_branch_id <> v_branch THEN
+        RAISE EXCEPTION 'هذا الطلب يخص فرعاً آخر';
+    END IF;
+
+    SELECT *
+    INTO v_member
+    FROM public.tsk_members
+    WHERE id = v_order.member_id;
+
+    RETURN jsonb_build_object(
+        'success', true,
+        'order_no', v_order.order_no,
+        'order_type', v_order.order_type,
+        'member_name', v_member.full_name,
+        'member_no', v_member.member_no,
+        'product', COALESCE(
+            v_order.product_name,
+            v_order.product_kind,
+            v_order.catalog_code
+        ),
+        'quantity', v_order.quantity,
+        'pickup_branch', v_order.pickup_branch_id,
+        'payment_method', v_order.payment_method,
+        'payment_status', v_order.payment_status,
+        'order_status', v_order.order_status,
+        'total_amount', v_order.total_amount,
+        'created_at', v_order.created_at
+    );
+END;
+$$;
+
+REVOKE ALL ON FUNCTION public.tsk_cashier_order_lookup(TEXT)
+FROM PUBLIC, anon, authenticated;
+
+GRANT EXECUTE ON FUNCTION public.tsk_cashier_order_lookup(TEXT)
+TO authenticated;
