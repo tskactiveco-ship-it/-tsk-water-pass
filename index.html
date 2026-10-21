@@ -275,7 +275,6 @@ footer{
 <section id="loginPage" class="card">
   <h2 data-i18n="login">تسجيل دخول الموظفين</h2>
 
-  <form id="loginForm">
     <label for="employee" data-i18n="employee">
       رقم الموظف
     </label>
@@ -285,8 +284,8 @@ footer{
       autocomplete="username"
       inputmode="numeric"
       required
-    >
-
+    
+<form id="loginForm" onsubmit="event.preventDefault(); login(); return false;">
     <label for="password" data-i18n="password">
       كلمة المرور
     </label>
