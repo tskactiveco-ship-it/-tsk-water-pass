@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b25"><title>بوابة المشترك | TSK ACTIVE</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#17332b;background:#f3f7f5}*{box-sizing:border-box}body{margin:0}.wrap{max-width:720px;margin:auto;padding:22px 16px 70px}header{display:flex;align-items:center;gap:15px;margin-bottom:26px}header img{height:58px;width:58px;object-fit:contain;border-radius:12px}h1{font-size:23px;margin:0}h2{margin:0 0 12px;font-size:21px}p{line-height:1.8}.muted{color:#61766d}.card{background:white;border:1px solid #dfe9e3;border-radius:22px;padding:24px;box-shadow:0 8px 26px #17332b0b;margin:15px 0}.tag{display:inline-block;background:#e2f3e9;color:#126b48;border-radius:40px;padding:7px 13px;font-size:13px;font-weight:700}label{display:block;font-weight:700;margin:18px 0 8px}input{width:100%;border:1px solid #bfcfc5;border-radius:12px;padding:15px;font:inherit;font-size:17px;direction:ltr;text-align:right}input:focus{outline:2px solid #126b48}button{background:#126b48;color:#fff;border:0;border-radius:12px;padding:15px 20px;font:inherit;font-weight:700;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.full{width:100%;margin-top:22px}.outline{background:white;color:#126b48;border:1px solid #126b48}.hidden{display:none!important}.alert{padding:13px 16px;border-radius:12px;background:#fff1ee;color:#a43827;margin-top:16px;line-height:1.7}.ok{background:#e9f6ee;color:#176743}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.stat{background:#f0f6f3;border-radius:14px;padding:16px 8px;text-align:center}.stat b{font-size:27px;display:block;color:#126b48;margin-top:5px}.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e8efeb;padding:13px 0;overflow-wrap:anywhere}.row:last-child{border-bottom:0}.foot{text-align:center;color:#71827a;font-size:13px;margin-top:25px}@media(max-width:440px){.card{padding:18px}.grid{gap:6px}.stat{padding:12px 4px}.stat b{font-size:22px}}
+</style>
+</head>
+<body><main class="wrap">
+<header><img src="tsk-logo.jpg" alt="شعار TSK ACTIVE" onerror="this.style.display='none'"><div><h1>TSK ACTIVE</h1><span class="muted">بوابة المشتركين | Water Pass</span></div></header>
+<section id="loginCard" class="card"><span class="tag">🔐 دخول آمن</span><h2 style="margin-top:18px">مرحبًا بك</h2><p class="muted">أدخل رقم عضويتك ورمز الدخول الذي فعّله الموظف لعرض اشتراكك.</p>
+<form id="loginForm"><label for="memberNo">رقم العضوية</label><input id="memberNo" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="رقم العضوية" required maxlength="70"><label for="pin">رمز PIN</label><input id="pin" type="password" inputmode="numeric" pattern="[0-9]{4,6}" maxlength="6" minlength="4" autocomplete="current-password" placeholder="٤ إلى ٦ أرقام" required><button id="loginBtn" class="full" type="submit">تسجيل الدخول</button></form>
+<div id="loginMessage" role="status" aria-live="polite"></div><p class="muted" style="font-size:13px">نسيت الرمز؟ راجع أحد موظفي TSK ACTIVE للتحقق من هويتك وإعادة تعيينه.</p></section>
+<section id="accountCard" class="hidden"><div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span class="tag">✓ عضويتي</span><button id="logoutBtn" class="outline" type="button">خروج</button></div><h2 id="memberName" style="margin-top:20px">المشترك</h2><div class="row"><span>رقم العضوية</span><strong id="displayNo">—</strong></div><div class="row"><span>الفرع</span><strong id="branch">—</strong></div><div class="row"><span>حالة الاشتراك</span><strong id="status">—</strong></div></div>
+<div class="card"><h2>رصيد العبوات</h2><div class="grid"><div class="stat">الإجمالي<b id="total">—</b></div><div class="stat">المستلمة<b id="used">—</b></div><div class="stat">المتبقية<b id="remaining">—</b></div></div><div id="balanceNote" class="muted" style="margin-top:15px">تُعرض الأرصدة المتاحة من خدمة العضوية فقط.</div></div>
+<div class="card"><h2>تفاصيل الاشتراك</h2><div id="packages" class="muted">لا توجد تفاصيل متاحة من خدمة الدخول.</div></div>
+</section><p class="foot">TSK ACTIVE · بيانات العضوية لا تظهر إلا بعد التحقق من رمز PIN</p></main>
+<script>
+'use strict';
+const BASE='https://qitrsjlkshhuvrtbswll.supabase.co';
+const KEY='sb_publishable_bgJdidOAL4iV1ssAE9h3jg_je2PJ-W6';
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const first=(obj,keys)=>{for(const key of keys){if(obj&&obj[key]!==undefined&&obj[key]!==null)return obj[key]}return null};
+const num=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v))?Number(v):null;
+const showNum=v=>num(v)===null?'—':new Intl.NumberFormat('ar-SA').format(num(v));
+let authenticated=false;
+function message(s){$('loginMessage').innerHTML=s?'<div class="alert">'+esc(s)+'</div>':''}
+function logout(){authenticated=false;$('accountCard').classList.add('hidden');$('loginCard').classList.remove('hidden');$('pin').value='';$('memberNo').value='';$('memberName').textContent='المشترك';$('packages').textContent='لا توجد تفاصيل متاحة من خدمة الدخول.';message('')}
+$('logoutBtn').addEventListener('click',logout);
+function render(data,requestedNo){
+ const payload=data?.data&&typeof data.data==='object'?data.data:data;
+ const member=payload?.member||payload?.subscriber||payload?.profile||payload?.user||payload;
+ if(!member||typeof member!=='object')throw new Error('تم التحقق، لكن خدمة الدخول لم تُرجع بيانات العضوية. يلزم استكمال ربط بيانات المشترك.');
+ const no=first(member,['member_no','member_number','subscription_no','subscriber_no'])||first(payload,['member_no','member_number']);
+ const name=first(member,['full_name','name','member_name','subscriber_name']);
+ if(!no&&!name)throw new Error('تم التحقق، لكن خدمة الدخول لم تُرجع بيانات العضوية. يلزم استكمال ربط بيانات المشترك.');
+ $('memberName').textContent=name||'المشترك';$('displayNo').textContent=no||requestedNo;
+ $('branch').textContent=first(member,['branch_name','branch','home_branch'])||'—';
+ $('status').textContent=first(member,['status','membership_status','subscription_status'])||'—';
+ const balance=payload?.balance||payload?.summary||member?.balance||member;
+ const total=num(first(balance,['total','total_bottles','purchased','purchased_bottles','quantity_total']));
+ const used=num(first(balance,['used','redeemed','received','redeemed_bottles','used_bottles']));
+ const remaining=num(first(balance,['remaining','remaining_bottles','available','balance_bottles']));
+ $('total').textContent=showNum(total);$('used').textContent=showNum(used);$('remaining').textContent=showNum(remaining);
+ const packages=payload?.packages||payload?.subscriptions||member?.packages;
+ if(Array.isArray(packages)&&packages.length){$('packages').innerHTML=packages.map(p=>'<div class="row"><span>'+esc(first(p,['title','name','kind','package_name','product'])||'باقة')+'</span><strong>'+esc(first(p,['remaining','available','balance'])??'—')+'</strong></div>').join('')}else{$('packages').textContent='لا توجد تفاصيل باقات في استجابة خدمة الدخول.'}
+ $('loginCard').classList.add('hidden');$('accountCard').classList.remove('hidden');authenticated=true;
+}
+$('loginForm').addEventListener('submit',async event=>{
+ event.preventDefault();if(authenticated)return;
+ const memberNo=$('memberNo').value.trim(),pin=$('pin').value.trim();
+ if(!memberNo){message('أدخل رقم العضوية.');return}
+ if(!/^[0-9]{4,6}$/.test(pin)){message('أدخل رمز PIN من 4 إلى 6 أرقام إنجليزية.');return}
+ const btn=$('loginBtn');btn.disabled=true;btn.textContent='جارٍ التحقق…';message('');
+ try{
+  const response=await fetch(BASE+'/functions/v1/tsk-member-login',{method:'POST',headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY},body:JSON.stringify({member_no:memberNo,pin:pin})});
+  let data;try{data=await response.json()}catch{throw new Error('تعذر قراءة رد خدمة الدخول. تحققي من إعدادات وظيفة Supabase.')}
+  if(!response.ok||data?.success===false||data?.error)throw new Error(typeof data?.error==='string'?data.error:(data?.message||'رقم العضوية أو رمز الدخول غير صحيح.'));
+  // No local demo data or direct public-table queries. Only verified Edge Function results are displayed.
+  render(data,memberNo);$('pin').value='';
+ }catch(err){message(err?.message||'تعذر تسجيل الدخول. يرجى المحاولة لاحقًا.')}finally{btn.disabled=false;btn.textContent='تسجيل الدخول'}
+});
+</script></body></html>
